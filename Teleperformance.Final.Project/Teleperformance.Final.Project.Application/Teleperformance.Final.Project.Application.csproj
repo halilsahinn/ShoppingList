@@ -14,15 +14,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Constants\" />
     <Folder Include="Contracts\" />
-    <Folder Include="DTOs\Category\" />
     <Folder Include="DTOs\User\" />
-    <Folder Include="DTOs\Product\" />
-    <Folder Include="Feautures\Category\" />
-    <Folder Include="Feautures\Product\" />
+    <Folder Include="Feautures\Category\Commands\Create\" />
+    <Folder Include="Feautures\Category\Commands\Delete\" />
+    <Folder Include="Feautures\Category\Commands\Update\" />
+    <Folder Include="Feautures\Category\Queries\" />
+    <Folder Include="Feautures\Product\Queries\" />
     <Folder Include="Models\" />
-    <Folder Include="Responses\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Swagger\" />
     <Folder Include="Profiles\" />
   </ItemGroup>
 

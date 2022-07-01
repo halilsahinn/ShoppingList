@@ -1,15 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Teleperformance.Final.Project.Domain.Base
+﻿namespace Teleperformance.Final.Project.Domain.Base
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
+        #region CTOR
+        public BaseEntity()
+        {
+            CreatedDate = DateTime.UtcNow;
+            IsActive = true;
+        }
 
+        #endregion
 
+        #region PROPERTIES
+
+        public virtual int Id { get; set; }
+
+        public bool IsActive { get; set; }
+
+        public virtual string Description { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
+        public DateTime? UpdatedDate { get; set; }
+
+        #endregion
 
     }
 }
