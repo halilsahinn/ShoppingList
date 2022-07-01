@@ -1,6 +1,6 @@
 
 <h1>186.TELEPERFORMANCE .NET BOOTCAMP BİTİRME PROJESİ - SHOPPING LIST</h1>
-<p>
+
 <ul>
 <li>Kullanıcıların almayı planladıkları ürünleri kaydedip takibini yapabilecekleri web api geliştirilecek.</li>
 <li>Kategori bazlı liste oluşturulabilmeli:</li>
@@ -11,10 +11,10 @@
 <li>Bu API’nin dışardan kullanabilmesi için token bazlı bir yapı geliştirilecek.</li>
 <li>Kullanıcı sisteme kayıt olmadan işlem yapamayacak.</li>
 <li>Sistemde iki tip rol olacak. Normal kullanıcı liste oluşturup onun üzerinde işlemler yapılabilecek.</li>
-<ul>
-</p>
+</ul>
+
 <h1>Admin rolünde de oluşturulan tüm listeler görülebilecek.</h1>
-<p>
+
 <ul>
 <li> Projede unit test yazılmalıdır.</li>
 <li>En az bir akış için entegrasyon testi yazılmalıdır</li>
@@ -22,11 +22,11 @@
 <li>Kullanıcılar tarafından bir liste tamamlandı olarak işaretlendiğinde bir event fırlatarak tamamlanan bu
 listenin bilgileri farklı bir veritabanında admin rolü tarafından görüntülenebilecek şekilde kaydedilecek..</li>
 <li> Nosql veritabanı kullanılabilir.</li>
-</p>
 </ul>
+
 <h1>Değerlendirme Kriterleri</h1>
+
 <ul>
-<p>
 <li>Değişken isimleri anlamlı, amaç neyse ona göre verilmiş.</li>
 <li>Metot isimleri ile metodun amacını net ifade edilmiş.</li>
 <li>Class'ların içindeki metot sayısı az ve amaca yönelik belirlenmiş.</li>
@@ -44,12 +44,10 @@ yaratılmamış.</li>
 <li> İnterface gibi abstraction lar ihtiyaç olduğu için kullanılmış. Gereksiz abstraction eklenmemiş.</li>
 <li> İnterface içeriği az ve tek sorumluluğa özgü metot imzası barındıracak şekilde tasarlanmış. Gereksiz design
 pattern kullanımı yapılmamış. Gerçekten bir problem çözmek için kullanılmış.</li>
-○ Open-Closed Prensibine dikkat edilmiş. Kod genişlemeye açık, değişikliğe kapalı şeklinde
+<li> Open-Closed Prensibine dikkat edilmiş. Kod genişlemeye açık, değişikliğe kapalı şeklinde
 tasarlanmış. Web/REST standartlarına dikkat edilmiş. Rest Api de açık metot
 parametreler için defansif validation kodları yazılmış.</li>
-<li>Command & Query Separation a dikkat edilmiş. Loglamaya dikkat edilmiş. Proje yapısını
-açıklayan Readme içerisinde yabancı birinin projeyi çekip nasıl çalıştıracağı gibi
-bilgilendirmelere yer Maliyetli işlemler için caching gibi optimizasyonlar
-düşünülmüş.Exceptionlar ignore edilmemiş. Gereksiz overenginneering'e kaçan zorlama kod,
+<li>Command & Query Separation a dikkat edilmiş. Loglamaya dikkat edilmiş. Proje yapısını açıklayan Readme içerisinde yabancı birinin projeyi çekip nasıl çalıştıracağı gibi
+bilgilendirmelere yer Maliyetli işlemler için caching gibi optimizasyonlar düşünülmüş.Exceptionlar ignore edilmemiş. Gereksiz overenginneering'e kaçan zorlama kod,
 </ul>
-</p>
+
