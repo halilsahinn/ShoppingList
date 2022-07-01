@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Teleperformance.Final.Project.Application.DTOs.Base;
 
 namespace Teleperformance.Final.Project.Application.DTOs.Category
 {
-    internal class CategoryDto
+    public class CategoryDto : BaseDto
     {
+        public int CategoryName { get; set; }
+
     }
 }

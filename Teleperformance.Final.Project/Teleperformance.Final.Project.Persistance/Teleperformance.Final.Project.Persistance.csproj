@@ -7,15 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Configurations\Category\" />
-    <Folder Include="Configurations\Product\" />
-    <Folder Include="Repositories\Entityframework\Base\" />
+    <Folder Include="UnitOfWork\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.6" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Teleperformance.Final.Project.Application\Teleperformance.Final.Project.Application.csproj" />
+    <ProjectReference Include="..\Teleperformance.Final.Project.Domain\Teleperformance.Final.Project.Domain.csproj" />
   </ItemGroup>
 
 </Project>

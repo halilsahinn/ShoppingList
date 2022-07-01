@@ -1,3 +1,5 @@
+using Teleperformance.Final.Project.WebAPI.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -19,6 +21,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<GlobalErrorHandling>();
 
 app.MapControllers();
 

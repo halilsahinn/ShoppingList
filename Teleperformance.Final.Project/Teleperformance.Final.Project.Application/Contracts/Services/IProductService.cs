@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Teleperformance.Final.Project.Application.Responses
+namespace Teleperformance.Final.Project.Application.Contracts.Services
 {
-    public  class WebAPIResponse<TResponse>
+    public  interface IProductService
     {
-
 
 
 

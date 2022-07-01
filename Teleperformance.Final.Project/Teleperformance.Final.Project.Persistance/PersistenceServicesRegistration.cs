@@ -14,9 +14,7 @@ namespace Teleperformance.Final.Project.Persistance
                options.UseSqlServer(
                    configuration.GetConnectionString("ShoppingListConnectionString")));
 
-
-
-
+ 
             return services;
         }
 

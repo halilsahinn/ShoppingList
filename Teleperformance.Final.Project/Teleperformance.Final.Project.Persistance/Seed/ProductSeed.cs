@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Teleperformance.Final.Project.Domain.Product;
 
 namespace Teleperformance.Final.Project.Persistance.Seed
 {
-    public class ProductSeed
+    public class ProductSeed : IEntityTypeConfiguration<ProductEntity>
     {
 
         #region CTOR
@@ -18,6 +16,18 @@ namespace Teleperformance.Final.Project.Persistance.Seed
 
         #endregion
 
+        #region CONFIGURE
+        public void Configure(EntityTypeBuilder<ProductEntity> builder)
+        {
+            builder.HasData(
+                new ProductEntity { Id = 1, ProductName = "Süt", Unit = 1 },
+                new ProductEntity { Id = 2, ProductName = "Çikolata", Unit = 2 },
+                new ProductEntity { Id = 3, ProductName = "Gazoz", Unit = 3 }
+
+
+                );
+        }
+        #endregion
 
 
 
