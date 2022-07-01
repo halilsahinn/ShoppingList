@@ -1,6 +1,6 @@
 
-<h1>186.TELEPERFORMANCE .NET BOOTCAMP BİTİRME PROJESİ - SHOPPING LIST</h1>
-
+<h1>TELEPERFORMANCE .NET BOOTCAMP BİTİRME PROJESİ - SHOPPING LIST</h1>
+<h2>Gereksinim Listesi</h2>
 <ul>
 <li>Kullanıcıların almayı planladıkları ürünleri kaydedip takibini yapabilecekleri web api geliştirilecek.</li>
 <li>Kategori bazlı liste oluşturulabilmeli:</li>
@@ -11,11 +11,7 @@
 <li>Bu API’nin dışardan kullanabilmesi için token bazlı bir yapı geliştirilecek.</li>
 <li>Kullanıcı sisteme kayıt olmadan işlem yapamayacak.</li>
 <li>Sistemde iki tip rol olacak. Normal kullanıcı liste oluşturup onun üzerinde işlemler yapılabilecek.</li>
-</ul>
-
-<h1>Admin rolünde de oluşturulan tüm listeler görülebilecek.</h1>
-
-<ul>
+<li>Admin rolünde de oluşturulan tüm listeler görülebilecek.</li>
 <li> Projede unit test yazılmalıdır.</li>
 <li>En az bir akış için entegrasyon testi yazılmalıdır</li>
 <li>Proje içinde gerekli görülen yerlerde cache kullanılmalıdır.</li>
@@ -24,7 +20,7 @@ listenin bilgileri farklı bir veritabanında admin rolü tarafından görüntü
 <li> Nosql veritabanı kullanılabilir.</li>
 </ul>
 
-<h1>Değerlendirme Kriterleri</h1>
+<h2>Değerlendirme Kriterleri</h2>
 
 <ul>
 <li>Değişken isimleri anlamlı, amaç neyse ona göre verilmiş.</li>
