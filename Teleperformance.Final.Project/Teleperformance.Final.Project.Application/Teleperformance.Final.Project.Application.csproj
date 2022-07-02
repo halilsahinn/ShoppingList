@@ -18,8 +18,7 @@
     <Folder Include="Feautures\Category\Commands\Delete\" />
     <Folder Include="Feautures\Category\Commands\Update\" />
     <Folder Include="Feautures\Category\Queries\" />
-    <Folder Include="Feautures\ShopList\" />
-    <Folder Include="Models\" />
+    <Folder Include="Feautures\ShopList\Queries\" />
     <Folder Include="Enums\" />
     <Folder Include="Extensions\" />
     <Folder Include="Helpers\" />
