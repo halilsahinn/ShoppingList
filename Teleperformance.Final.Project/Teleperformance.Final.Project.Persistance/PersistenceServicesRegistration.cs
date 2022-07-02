@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Teleperformance.Final.Project.Application.Contracts.Repositories;
+using Teleperformance.Final.Project.Application.Contracts.UnitOfWork;
 using Teleperformance.Final.Project.Persistance.Contexs;
+using Teleperformance.Final.Project.Persistance.Repositories.Entityframework;
 
 namespace Teleperformance.Final.Project.Persistance
 {
@@ -14,7 +17,15 @@ namespace Teleperformance.Final.Project.Persistance
                options.UseSqlServer(
                    configuration.GetConnectionString("ShoppingListConnectionString")));
 
- 
+
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<IProductRepository, EfProductRepository>();
+            services.AddScoped<ICategoryRepository, EfCategoryRepository>();
+
+
+
             return services;
         }
 

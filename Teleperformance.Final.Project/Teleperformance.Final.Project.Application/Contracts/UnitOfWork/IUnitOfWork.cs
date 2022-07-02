@@ -2,7 +2,7 @@
 
 namespace Teleperformance.Final.Project.Application.Contracts.UnitOfWork
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork: IDisposable
     {
         IProductRepository ProductRepository { get; }
         ICategoryRepository CategoryRepository { get; }
