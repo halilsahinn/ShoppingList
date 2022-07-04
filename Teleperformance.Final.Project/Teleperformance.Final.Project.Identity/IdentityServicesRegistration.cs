@@ -20,7 +20,7 @@ namespace Teleperformance.Final.Project.Identity
             services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
 
             services.AddDbContext<ShoppingListIdentityDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("LeaveManagementIdentityConnectionString"),
+                options.UseSqlServer(configuration.GetConnectionString("IdentityConnectionString"),
                 b => b.MigrationsAssembly(typeof(ShoppingListIdentityDbContext).Assembly.FullName)));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()

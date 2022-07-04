@@ -15,7 +15,7 @@ namespace Teleperformance.Final.Project.Persistance
 
             services.AddDbContext<ShoppingListDbContext>(options =>
                options.UseSqlServer(
-                   configuration.GetConnectionString("ShoppingListConnectionString")));
+                   configuration.GetConnectionString("ShopingListConnectionString")));
 
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
@@ -23,7 +23,7 @@ namespace Teleperformance.Final.Project.Persistance
 
             services.AddScoped<IProductRepository, EfProductRepository>();
             services.AddScoped<ICategoryRepository, EfCategoryRepository>();
-
+            services.AddScoped<IShopListRepository, EfShopListRepository>();
 
 
             return services;

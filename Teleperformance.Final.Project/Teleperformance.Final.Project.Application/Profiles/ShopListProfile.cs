@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Teleperformance.Final.Project.Application.DTOs.ShopList;
+using Teleperformance.Final.Project.Domain.ShopList;
 
 namespace Teleperformance.Final.Project.Application.Profiles
 {
@@ -7,6 +9,7 @@ namespace Teleperformance.Final.Project.Application.Profiles
 
         public ShopListProfile()
         {
+            CreateMap<ShopListEntity, ShopListDto>().ReverseMap();
 
         }
 

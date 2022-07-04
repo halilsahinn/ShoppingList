@@ -7,21 +7,32 @@ using Teleperformance.Final.Project.Domain.Product;
 
 namespace Teleperformance.Final.Project.Application.Feautures.Product.Commands
 {
+
+    #region COMMAND
     public class CreateProductCommand : IRequest<BaseCommandResponse>
     {
         public ProductDto productDto { get; set; }
     }
+    #endregion
+     
+    #region HANDLER
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, BaseCommandResponse>
     {
+
+        #region FIELDS
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-
+        #endregion
+         
+        #region CTOR
         public CreateProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
+        #endregion
 
+        #region METHODS
         public async Task<BaseCommandResponse> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponse();
@@ -47,5 +58,9 @@ namespace Teleperformance.Final.Project.Application.Feautures.Product.Commands
             }
             return response;
         }
+
+        #endregion
     }
+    #endregion
+
 }

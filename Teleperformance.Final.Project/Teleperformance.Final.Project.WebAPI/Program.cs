@@ -1,13 +1,20 @@
+using Teleperformance.Final.Project.Identity;
+using Teleperformance.Final.Project.Persistance;
 using Teleperformance.Final.Project.WebAPI.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
+  
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+#region CONFIGURE SERVICES
+builder.Services.ConfigurePersistenceServices(builder.Configuration);
+builder.Services.ConfigureIdentityServices(builder.Configuration);
+#endregion
+
 
 var app = builder.Build();
 
@@ -22,7 +29,14 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.UseMiddleware<GlobalErrorHandling>();
+
+#region MIDDLEWARE
+//*
+//Web API Exceptionlarýný burada yakalýyoruz
+//*/
+app.UseMiddleware<ExceptionMiddleware>();
+#endregion
+
 
 app.MapControllers();
 

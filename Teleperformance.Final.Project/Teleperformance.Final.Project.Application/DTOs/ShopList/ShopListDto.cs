@@ -4,7 +4,7 @@ namespace Teleperformance.Final.Project.Application.DTOs.ShopList
 {
     public class ShopListDto
     {
-        public string ProductName { get; set; }
+        public IList<ProductDto> Products { get; set; }
 
         public string CategoryName { get; set; }
        
