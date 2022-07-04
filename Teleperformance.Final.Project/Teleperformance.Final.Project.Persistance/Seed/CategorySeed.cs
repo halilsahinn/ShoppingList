@@ -19,9 +19,9 @@ namespace Teleperformance.Final.Project.Persistance.Seed
         public void Configure(EntityTypeBuilder<CategoryEntity> builder)
         {
             builder.HasData(
-                new CategoryEntity { Id = 1, CategoryName = "Alışveriş Listesi" },
-                new CategoryEntity { Id = 2, CategoryName = "Film Listesi"},
-                new CategoryEntity { Id = 3, CategoryName = "Yapılacaklar Listesi"}
+                new CategoryEntity { Id = 1, CategoryName = "Alışveriş Listesi",Description="" },
+                new CategoryEntity { Id = 2, CategoryName = "Film Listesi", Description = "" },
+                new CategoryEntity { Id = 3, CategoryName = "Yapılacaklar Listesi", Description = "" }
 
 
                 );
