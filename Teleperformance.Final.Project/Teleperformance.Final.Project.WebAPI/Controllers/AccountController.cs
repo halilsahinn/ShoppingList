@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Teleperformance.Final.Project.Application.Contracts.Identity;
+using Teleperformance.Final.Project.Application.Models.Identity;
 using Teleperformance.Final.Project.WebAPI.Controllers.Base;
 
 namespace Teleperformance.Final.Project.WebAPI.Controllers
@@ -9,18 +11,27 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
         /// Sisteme giriş kontrollerinin yapıldığı controller.
         /// </summary>
 
-        #region CTOR
-        public AccountController()
-        {
+        #region FIELDS
 
+        private readonly IAuthService _authenticationService;
+
+
+        #endregion
+
+        #region CTOR
+
+        public AccountController(IAuthService authenticationService)
+        {
+            _authenticationService = authenticationService;
         }
 
         #endregion
 
         #region IACTION RESULTS
-        public IActionResult Login()
+        [HttpPost("login")]
+        public async Task<ActionResult<AuthResponse>> Login(AuthRequest request)
         {
-            return View();
+            return Ok(await _authenticationService.Login(request));
         }
         #endregion
 
