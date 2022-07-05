@@ -9,7 +9,7 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework
          
         private readonly ShoppingListDbContext _dbContext;
 
-        public EfCategoryRepository(ShoppingListDbContext dbContext)
+        public EfCategoryRepository(ShoppingListDbContext dbContext):base(dbContext)
         {
             _dbContext = dbContext;
         }

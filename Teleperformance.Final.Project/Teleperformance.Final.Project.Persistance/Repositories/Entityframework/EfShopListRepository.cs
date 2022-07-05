@@ -7,7 +7,7 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework
     public class EfShopListRepository : GenericRepository<ShopListEntity>, IShopListRepository
     {
         private readonly ShoppingListDbContext _dbContext;
-        public EfShopListRepository(ShoppingListDbContext dbContext)
+        public EfShopListRepository(ShoppingListDbContext dbContext):base(dbContext)
         {
             _dbContext = dbContext;
         }

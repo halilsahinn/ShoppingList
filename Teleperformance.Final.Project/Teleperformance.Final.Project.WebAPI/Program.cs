@@ -81,10 +81,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-#region JWT
-
-
-#endregion
+ 
 
 #region MIDDLEWARE
 //*

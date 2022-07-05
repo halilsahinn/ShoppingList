@@ -8,7 +8,7 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+ 
     public class ProductController : ControllerBase
     {
 

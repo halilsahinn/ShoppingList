@@ -8,6 +8,11 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework
     {
         private readonly ShoppingListDbContext _dbContext;
 
+        public GenericRepository(ShoppingListDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         public async Task<T> Add(T entity)
         {
             await _dbContext.AddAsync(entity);
