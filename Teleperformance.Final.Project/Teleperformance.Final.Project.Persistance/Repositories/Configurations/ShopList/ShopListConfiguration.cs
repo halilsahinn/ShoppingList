@@ -33,7 +33,7 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Configurations.
 
             #region TABLE & SCHEME
 
-            builder.ToTable("Main", "ShopList");
+            builder.ToTable("Items", "ShopList");
 
             #endregion
         }

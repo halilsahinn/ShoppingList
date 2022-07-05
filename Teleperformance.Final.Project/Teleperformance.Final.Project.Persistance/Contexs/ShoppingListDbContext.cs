@@ -40,7 +40,7 @@ namespace Teleperformance.Final.Project.Persistance.Contexs
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=HSAHIN\\SQL2014;Database=ShoppingListDB;Trusted_Connection=True;");
+             
         }
 
         #endregion
