@@ -49,7 +49,7 @@ namespace Teleperformance.Final.Project.Application.Feautures.Product.Commands
             {
                 var product = _mapper.Map<ProductEntity>(request.productDto);
 
-                product = await _unitOfWork.ProductRepository.Add(product);
+               // product = await _unitOfWork.ShopListRepository.Add(product);
                 await _unitOfWork.Save();
 
                 response.Success = true;

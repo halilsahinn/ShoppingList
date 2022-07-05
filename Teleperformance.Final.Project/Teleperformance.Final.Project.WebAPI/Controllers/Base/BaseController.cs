@@ -2,7 +2,7 @@
 
 namespace Teleperformance.Final.Project.WebAPI.Controllers.Base
 {
-    public class BaseController : Controller
+    public class BaseController : ControllerBase
     {
 
         #region CTOR

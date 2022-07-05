@@ -7,6 +7,8 @@ namespace Teleperformance.Final.Project.Application.Contracts.UnitOfWork
         IProductRepository ProductRepository { get; }
         ICategoryRepository CategoryRepository { get; }
 
+        IShopListRepository ShopListRepository { get; }
+
         Task Save();
 
     }
