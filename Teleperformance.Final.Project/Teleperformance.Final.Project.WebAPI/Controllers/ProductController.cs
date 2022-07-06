@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 using Teleperformance.Final.Project.Application.DTOs.Product;
 using Teleperformance.Final.Project.Application.Feautures.Product.Queries;
 
@@ -8,6 +9,7 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    
  
     public class ProductController : ControllerBase
     {
@@ -24,6 +26,7 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
         public ProductController(IMediator mediator)
         {
             _mediator = mediator;
+           
         }
 
         #endregion
@@ -34,6 +37,10 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductDto>> Get(int id)
         {
+            int a = 0;
+            int b = 10;
+            int c = b / a;
+
             var product = await _mediator.Send(new GetByIdQuery{Id = id});
             return Ok(product);
         }

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Serilog;
 using System.Net;
 using Teleperformance.Final.Project.Application.Exceptions;
 
@@ -30,7 +31,7 @@ namespace Teleperformance.Final.Project.WebAPI.Middleware
             string result = JsonConvert.SerializeObject(new ErrorDeatils
             {
                 ErrorMessage = exception.Message,
-                ErrorType = "Failure"
+                ErrorType = "Hata:"
             });
 
             switch (exception)
@@ -50,6 +51,17 @@ namespace Teleperformance.Final.Project.WebAPI.Middleware
             }
 
             context.Response.StatusCode = (int)statusCode;
+
+
+            Log.Logger = new LoggerConfiguration()
+                 .MinimumLevel.Debug()
+                 .WriteTo.Console()
+                  .WriteTo.File($"Logs\\{DateTime.Now.ToString("dd-MM-yyyy")}-log.txt",
+    outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
+                 .CreateLogger();
+
+            Log.Error(result);
+
             return context.Response.WriteAsync(result);
         }
     }
