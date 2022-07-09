@@ -1,15 +1,17 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using MediatR;
 using Teleperformance.Final.Project.Application.Contracts.UnitOfWork;
 using Teleperformance.Final.Project.Application.DTOs.Category;
 using Teleperformance.Final.Project.Application.Responses;
+using Teleperformance.Final.Project.Application.ValidationRules.Category;
 using Teleperformance.Final.Project.Domain.Category;
 
 namespace Teleperformance.Final.Project.Application.Feautures.Category.Commands.Create
 {
     public class CreateCategoryCommand : IRequest<BaseCommandResponse>
     {
-        public CategoryDto categoryDto { get; set; }
+        public AddCategoryDto categoryDto { get; set; }
     }
 
     public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, BaseCommandResponse>
@@ -26,7 +28,7 @@ namespace Teleperformance.Final.Project.Application.Feautures.Category.Commands.
         public async Task<BaseCommandResponse> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponse();
-            var validator = new CreateCategoryCommandValidator();
+            var validator = new AddCategoryDtoValidator();
             var validationResult = await validator.ValidateAsync(request.categoryDto);
 
             if (validationResult.IsValid == false)
@@ -39,9 +41,9 @@ namespace Teleperformance.Final.Project.Application.Feautures.Category.Commands.
             {
                 var result = _mapper.Map<CategoryEntity>(request.categoryDto);
 
-               // result = await _unitOfWork.ProductRepository.Add(result);
+                // result = await _unitOfWork.ProductRepository.Add(result);
                 await _unitOfWork.Save();
- 
+
 
 
                 response.Success = true;

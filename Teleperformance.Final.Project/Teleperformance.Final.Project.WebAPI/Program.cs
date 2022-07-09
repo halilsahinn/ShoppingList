@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 using Teleperformance.Final.Project.Application;
 using Teleperformance.Final.Project.Identity;
@@ -7,16 +8,24 @@ using Teleperformance.Final.Project.WebAPI.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddApiVersioning(_ =>
+{
+    _.DefaultApiVersion = new ApiVersion(1, 0);
+    _.AssumeDefaultVersionWhenUnspecified = true;
+    _.ReportApiVersions = true;
+});
 
 #region SWAGGER DOC
 builder.Services.AddSwaggerGen(s =>
 {
     s.SwaggerDoc("v1", new OpenApiInfo
     {
-        Version = "v1",
+      
+    Version = "v1",
         Title = "Teleformans Final Projesi",
         Description = "Asp.net Core Web API, Clean Architecture,CQRS, Media Pattern Kullanýlarak Bir Web API Projesi Geliþtirilecektir..",
         Contact = new OpenApiContact
@@ -69,7 +78,7 @@ builder.Services.ConfigureApplicationServices();
 
 
 var app = builder.Build();
-
+app.UseAuthentication();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -81,17 +90,12 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
- 
-
 #region MIDDLEWARE
 //*
 //Web API Exceptionlarýný burada yakalýyoruz
 //*/
 app.UseMiddleware<ExceptionMiddleware>();
 #endregion
-
-
-
 
 app.MapControllers();
 

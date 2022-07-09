@@ -11,10 +11,10 @@ namespace Teleperformance.Final.Project.Application.Feautures.Product.Commands
     #region COMMAND
     public class CreateProductCommand : IRequest<BaseCommandResponse>
     {
-        public ProductDto productDto { get; set; }
+        public AddProductDto productDto { get; set; }
     }
     #endregion
-     
+
     #region HANDLER
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, BaseCommandResponse>
     {
@@ -23,7 +23,7 @@ namespace Teleperformance.Final.Project.Application.Feautures.Product.Commands
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         #endregion
-         
+
         #region CTOR
         public CreateProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
@@ -49,7 +49,7 @@ namespace Teleperformance.Final.Project.Application.Feautures.Product.Commands
             {
                 var product = _mapper.Map<ProductEntity>(request.productDto);
 
-               // product = await _unitOfWork.ShopListRepository.Add(product);
+                product = await _unitOfWork.ProductRepository.Add(product);
                 await _unitOfWork.Save();
 
                 response.Success = true;

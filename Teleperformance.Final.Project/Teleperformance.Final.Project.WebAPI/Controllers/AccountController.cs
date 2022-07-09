@@ -1,16 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Teleperformance.Final.Project.Application.Contracts.Identity;
 using Teleperformance.Final.Project.Application.Models.Identity;
 using Teleperformance.Final.Project.WebAPI.Controllers.Base;
 
 namespace Teleperformance.Final.Project.WebAPI.Controllers
 {
+    [AllowAnonymous]
     public class AccountController : BaseController
     {
+
+        #region SUMMARY
         /// <summary>
         /// Sisteme giriş kontrollerinin yapıldığı controller.
         /// </summary>
-
+        #endregion
+         
         #region FIELDS
 
         private readonly IAuthService _authenticationService;
@@ -27,7 +32,7 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
 
         #endregion
 
-        #region IACTION RESULTS
+        #region ACTION RESULTS
         [HttpPost("login")]
         public async Task<ActionResult<AuthResponse>> Login(AuthRequest request)
         {
@@ -35,9 +40,7 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
         }
         #endregion
 
-        #region METHODS
-
-        #endregion
+         
 
     }
 }

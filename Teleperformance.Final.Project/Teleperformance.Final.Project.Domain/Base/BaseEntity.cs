@@ -17,7 +17,7 @@
 
         public bool IsActive { get; set; }
 
-        public virtual string Description { get; set; }
+        public virtual string? Description { get; set; }
 
         public DateTime CreatedDate { get; set; }
 

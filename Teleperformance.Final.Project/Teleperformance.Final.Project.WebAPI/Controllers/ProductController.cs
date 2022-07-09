@@ -1,17 +1,17 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Serilog;
 using Teleperformance.Final.Project.Application.DTOs.Product;
+using Teleperformance.Final.Project.Application.Feautures.Product.Commands;
 using Teleperformance.Final.Project.Application.Feautures.Product.Queries;
+using Teleperformance.Final.Project.Application.Responses;
+using Teleperformance.Final.Project.WebAPI.Controllers.Base;
 
 namespace Teleperformance.Final.Project.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    
- 
-    public class ProductController : ControllerBase
+    [Authorize]
+     
+    public class ProductController : BaseController
     {
 
         #region FIELDS
@@ -22,11 +22,11 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
         #endregion
 
         #region CTOR
-         
+
         public ProductController(IMediator mediator)
         {
             _mediator = mediator;
-           
+
         }
 
         #endregion
@@ -37,20 +37,21 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductDto>> Get(int id)
         {
-            int a = 0;
-            int b = 10;
-            int c = b / a;
 
-            var product = await _mediator.Send(new GetByIdQuery{Id = id});
+            var product = await _mediator.Send(new GetByIdQuery { Id = id });
             return Ok(product);
         }
         #endregion
 
-
         #region CREATE
-
+        [HttpPost]
+        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] AddProductDto productDto)
+        {
+            var command = new CreateProductCommand { productDto = productDto };
+            var repsonse = await _mediator.Send(command);
+            return Ok(repsonse);
+        }
         #endregion
-
 
         #region UPDATE
 

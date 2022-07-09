@@ -12,11 +12,7 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework
         {
             _dbContext = dbContext;
         }
-
-
-
-
-
+ 
 
     }
 }

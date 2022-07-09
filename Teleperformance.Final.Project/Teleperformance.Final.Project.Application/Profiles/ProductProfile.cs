@@ -10,6 +10,7 @@ namespace Teleperformance.Final.Project.Application.Profiles
         public ProductProfile()
         {
             CreateMap<ProductEntity, ProductDto>().ReverseMap();
+            CreateMap<ProductEntity, AddProductDto>().ReverseMap();
         }
 
     }

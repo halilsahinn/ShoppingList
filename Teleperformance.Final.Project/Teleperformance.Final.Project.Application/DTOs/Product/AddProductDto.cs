@@ -2,5 +2,7 @@
 {
     public class AddProductDto
     {
+        public string ProductName { get; set; }
+        public byte Unit { get; set; }
     }
 }

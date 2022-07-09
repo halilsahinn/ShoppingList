@@ -6,6 +6,8 @@ namespace Teleperformance.Final.Project.Application.DTOs.Product
     {
         public string ProductName { get; set; }
 
+        public byte Unit { get; set; }
+
 
     }
 }

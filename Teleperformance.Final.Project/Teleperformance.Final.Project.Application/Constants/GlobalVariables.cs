@@ -34,5 +34,9 @@
 
         public static string DEFAULT_SCHEMA { get; set; } = "dbo";
         #endregion
+
+        #region SWAGGER
+
+        #endregion
     }
 }

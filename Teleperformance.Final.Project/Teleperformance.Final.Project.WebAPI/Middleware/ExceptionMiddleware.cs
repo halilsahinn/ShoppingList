@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Serilog;
 using System.Net;
+using System.Text;
 using Teleperformance.Final.Project.Application.Exceptions;
 
 namespace Teleperformance.Final.Project.WebAPI.Middleware
@@ -33,7 +34,7 @@ namespace Teleperformance.Final.Project.WebAPI.Middleware
                 ErrorMessage = exception.Message,
                 ErrorType = "Hata:"
             });
-
+            StringBuilder strResultBuilder = new StringBuilder();
             switch (exception)
             {
                 case BadRequestException badRequestException:
@@ -41,12 +42,23 @@ namespace Teleperformance.Final.Project.WebAPI.Middleware
                     break;
                 case ValidationException validationException:
                     statusCode = HttpStatusCode.BadRequest;
-                    result = JsonConvert.SerializeObject(validationException.Errors);
+                  
+                    strResultBuilder.Append(JsonConvert.SerializeObject(validationException.Errors));
+                    strResultBuilder.Append(JsonConvert.SerializeObject(validationException.InnerException));
+                    strResultBuilder.Append(JsonConvert.SerializeObject(validationException.Message  ));
+                    
                     break;
                 case NotFoundException notFoundException:
                     statusCode = HttpStatusCode.NotFound;
                     break;
+
+                case Exception ex:
+                    strResultBuilder.Append(JsonConvert.SerializeObject(ex.Message));
+                    strResultBuilder.Append(JsonConvert.SerializeObject(ex.InnerException));
+                    strResultBuilder.Append(JsonConvert.SerializeObject(ex.Data));
+                    break;
                 default:
+                  
                     break;
             }
 
@@ -60,9 +72,9 @@ namespace Teleperformance.Final.Project.WebAPI.Middleware
     outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
                  .CreateLogger();
 
-            Log.Error(result);
+            Log.Error(strResultBuilder.ToString());
 
-            return context.Response.WriteAsync(result);
+            return context.Response.WriteAsync(strResultBuilder.ToString());
         }
     }
 
