@@ -2,7 +2,9 @@
 using MediatR;
 using Teleperformance.Final.Project.Application.Contracts.UnitOfWork;
 using Teleperformance.Final.Project.Application.DTOs.Product;
+using Teleperformance.Final.Project.Application.Feautures.Base;
 using Teleperformance.Final.Project.Application.Responses;
+using Teleperformance.Final.Project.Application.ValidationRules.Product;
 using Teleperformance.Final.Project.Domain.Product;
 
 namespace Teleperformance.Final.Project.Application.Feautures.Product.Commands
@@ -16,19 +18,12 @@ namespace Teleperformance.Final.Project.Application.Feautures.Product.Commands
     #endregion
 
     #region HANDLER
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, BaseCommandResponse>
-    {
-
-        #region FIELDS
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
-        #endregion
-
+    public class CreateProductCommandHandler :BaseHandler, IRequestHandler<CreateProductCommand, BaseCommandResponse>
+    { 
         #region CTOR
-        public CreateProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public CreateProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper):base(unitOfWork, mapper)
         {
-            _unitOfWork = unitOfWork;
-            _mapper = mapper;
+          
         }
         #endregion
 
@@ -36,7 +31,7 @@ namespace Teleperformance.Final.Project.Application.Feautures.Product.Commands
         public async Task<BaseCommandResponse> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponse();
-            var validator = new CreateProductCommandValidator();
+            var validator = new AddProductDtoValidator();
             var validationResult = await validator.ValidateAsync(request.productDto);
 
             if (validationResult.IsValid == false)

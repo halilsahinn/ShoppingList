@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using Teleperformance.Final.Project.Application.DTOs.Product;
-using Teleperformance.Final.Project.Application.Messages.Validation;
+using Teleperformance.Final.Project.Application.Messages.TR.Validation;
 
 namespace Teleperformance.Final.Project.Application.ValidationRules.Product
 {
@@ -10,10 +10,10 @@ namespace Teleperformance.Final.Project.Application.ValidationRules.Product
         public AddProductDtoValidator()
         {
             RuleFor(x => x.ProductName)
-                .NotEmpty().WithMessage(ProductResource.ProductNameNotNull)
-                .Length(3,100).WithMessage(String.Format(ProductResource.ProductNameLengthMustBe, 3,100));
-           
-            RuleFor(x => x.Unit).NotEmpty().WithMessage(ProductResource.ProductUnitNotNull);
+                .NotEmpty().WithMessage(ProductValidationResource.ProductNameNotNull)
+                .Length(3, 100).WithMessage(String.Format(ProductValidationResource.ProductNameLengthMustBe, 3, 100));
+
+            RuleFor(x => x.Unit).NotEmpty().WithMessage(ProductValidationResource.ProductUnitNotNull);
         }
     }
 }

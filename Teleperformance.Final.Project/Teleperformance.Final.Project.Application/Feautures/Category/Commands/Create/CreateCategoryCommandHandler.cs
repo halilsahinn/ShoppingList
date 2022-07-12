@@ -1,30 +1,32 @@
 ﻿using AutoMapper;
-using FluentValidation;
 using MediatR;
 using Teleperformance.Final.Project.Application.Contracts.UnitOfWork;
 using Teleperformance.Final.Project.Application.DTOs.Category;
+using Teleperformance.Final.Project.Application.Feautures.Base;
 using Teleperformance.Final.Project.Application.Responses;
 using Teleperformance.Final.Project.Application.ValidationRules.Category;
 using Teleperformance.Final.Project.Domain.Category;
 
 namespace Teleperformance.Final.Project.Application.Feautures.Category.Commands.Create
 {
+    #region COMMAND
     public class CreateCategoryCommand : IRequest<BaseCommandResponse>
     {
         public AddCategoryDto categoryDto { get; set; }
     }
+    #endregion
 
-    public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, BaseCommandResponse>
+    #region HANDLER
+    public class CreateCategoryCommandHandler : BaseHandler, IRequestHandler<CreateCategoryCommand, BaseCommandResponse>
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
-
-        public CreateCategoryCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        #region CTOR
+        public CreateCategoryCommandHandler(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
         {
-            _unitOfWork = unitOfWork;
-            _mapper = mapper;
-        }
 
+        }
+        #endregion
+
+        #region METHODS
         public async Task<BaseCommandResponse> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponse();
@@ -52,5 +54,9 @@ namespace Teleperformance.Final.Project.Application.Feautures.Category.Commands.
             }
             return response;
         }
+
+        #endregion
     }
+
+    #endregion
 }

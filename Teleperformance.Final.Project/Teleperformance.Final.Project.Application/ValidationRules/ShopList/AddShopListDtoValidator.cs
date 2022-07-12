@@ -8,6 +8,7 @@ namespace Teleperformance.Final.Project.Application.ValidationRules.ShopList
         public AddShopListDtoValidator()
         {
             RuleFor(x=>x.CategoryId).NotEmpty().WithMessage("");
+           
         }
 
     }

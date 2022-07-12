@@ -13,19 +13,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{F3B1F2C2-F25
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E5123E48-27AE-4F13-A034-98FBFB5A3157}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teleperformance.Final.Project.Application", "Teleperformance.Final.Project.Application\Teleperformance.Final.Project.Application.csproj", "{D28BC958-C8CC-48BF-A3AA-58C4D5A2F909}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleperformance.Final.Project.Application", "Teleperformance.Final.Project.Application\Teleperformance.Final.Project.Application.csproj", "{D28BC958-C8CC-48BF-A3AA-58C4D5A2F909}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teleperformance.Final.Project.Domain", "Teleperformance.Final.Project.Domain\Teleperformance.Final.Project.Domain.csproj", "{1A001F5E-25BC-4CB7-A1E6-019E40ADB254}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleperformance.Final.Project.Domain", "Teleperformance.Final.Project.Domain\Teleperformance.Final.Project.Domain.csproj", "{1A001F5E-25BC-4CB7-A1E6-019E40ADB254}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{1824F686-AC2B-43BF-868C-B6A8869E65A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teleperformance.Final.Project.Identity", "Teleperformance.Final.Project.Identity\Teleperformance.Final.Project.Identity.csproj", "{8AD68103-1CE3-4D76-ABF4-346FF04D4C89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleperformance.Final.Project.Identity", "Teleperformance.Final.Project.Identity\Teleperformance.Final.Project.Identity.csproj", "{8AD68103-1CE3-4D76-ABF4-346FF04D4C89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teleperformance.Final.Project.Infrastructure", "Teleperformance.Final.Project.Infrastructure\Teleperformance.Final.Project.Infrastructure.csproj", "{8C284BA0-3D2E-41BA-821A-D5DBBC666FD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleperformance.Final.Project.Infrastructure", "Teleperformance.Final.Project.Infrastructure\Teleperformance.Final.Project.Infrastructure.csproj", "{8C284BA0-3D2E-41BA-821A-D5DBBC666FD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teleperformance.Final.Project.Persistance", "Teleperformance.Final.Project.Persistance\Teleperformance.Final.Project.Persistance.csproj", "{A046A289-9795-4D88-98FD-89C53B31E267}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleperformance.Final.Project.Persistance", "Teleperformance.Final.Project.Persistance\Teleperformance.Final.Project.Persistance.csproj", "{A046A289-9795-4D88-98FD-89C53B31E267}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teleperformance.Final.Project.UnitTests", "Teleperformance.Final.Project.UnitTests\Teleperformance.Final.Project.UnitTests.csproj", "{2A117F47-FA73-4E7E-B267-C3400DDC0015}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleperformance.Final.Project.UnitTests", "Teleperformance.Final.Project.UnitTests\Teleperformance.Final.Project.UnitTests.csproj", "{2A117F47-FA73-4E7E-B267-C3400DDC0015}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projections", "Projections", "{B10601BC-C8E8-46E6-90EA-0AD63AECC203}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleperformance.Final.Project.Consumer.Worker", "Teleperformance.Final.Project.Consumer.Worker\Teleperformance.Final.Project.Consumer.Worker.csproj", "{BC2D90F1-076F-4B39-BC8E-F0D33A38B29B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teleperformance.Final.Project.MongoDb", "Teleperformance.Final.Project.MongoDb\Teleperformance.Final.Project.MongoDb.csproj", "{237DEC7B-658B-48B0-8F63-F5B10B14EE67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +67,14 @@ Global
 		{2A117F47-FA73-4E7E-B267-C3400DDC0015}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A117F47-FA73-4E7E-B267-C3400DDC0015}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A117F47-FA73-4E7E-B267-C3400DDC0015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC2D90F1-076F-4B39-BC8E-F0D33A38B29B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC2D90F1-076F-4B39-BC8E-F0D33A38B29B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC2D90F1-076F-4B39-BC8E-F0D33A38B29B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC2D90F1-076F-4B39-BC8E-F0D33A38B29B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{237DEC7B-658B-48B0-8F63-F5B10B14EE67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{237DEC7B-658B-48B0-8F63-F5B10B14EE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{237DEC7B-658B-48B0-8F63-F5B10B14EE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{237DEC7B-658B-48B0-8F63-F5B10B14EE67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +90,9 @@ Global
 		{8C284BA0-3D2E-41BA-821A-D5DBBC666FD7} = {1824F686-AC2B-43BF-868C-B6A8869E65A9}
 		{A046A289-9795-4D88-98FD-89C53B31E267} = {1824F686-AC2B-43BF-868C-B6A8869E65A9}
 		{2A117F47-FA73-4E7E-B267-C3400DDC0015} = {0F78B36E-363D-40CF-A1D0-5FC115D810EB}
+		{B10601BC-C8E8-46E6-90EA-0AD63AECC203} = {70811CD0-23C2-44E0-A703-782A09685CEC}
+		{BC2D90F1-076F-4B39-BC8E-F0D33A38B29B} = {B10601BC-C8E8-46E6-90EA-0AD63AECC203}
+		{237DEC7B-658B-48B0-8F63-F5B10B14EE67} = {1824F686-AC2B-43BF-868C-B6A8869E65A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4AAB8AEE-FAB8-46AA-85DB-8E6B19B4F00F}

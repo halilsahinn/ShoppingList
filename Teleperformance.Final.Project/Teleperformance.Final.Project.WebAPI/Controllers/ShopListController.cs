@@ -29,7 +29,7 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
         #region CREATE
         // POST api/<LeaveAllocationsController>
         [HttpPost]
-        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] ShopListDto shopListDto)
+        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] AddShopListDto shopListDto)
         {
             var command = new CreateShopListCommand { shopListDto = shopListDto };
             var repsonse = await _mediator.Send(command);

@@ -11,6 +11,7 @@
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.1.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.16.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,26 +30,53 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Messages\Validation\CategoryResource.Designer.cs">
+    <Compile Update="Messages\TR\Info\CategoryInfoResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>CategoryResource.resx</DependentUpon>
+      <DependentUpon>CategoryInfoResource.resx</DependentUpon>
     </Compile>
-    <Compile Update="Messages\Validation\ProductResource.Designer.cs">
+    <Compile Update="Messages\TR\Info\ProductInfoResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>ProductResource.resx</DependentUpon>
+      <DependentUpon>ProductInfoResource.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Messages\TR\Validation\CategoryValidationResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CategoryValidationResource.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Messages\TR\Validation\ProductValidationResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ProductValidationResource.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Messages\TR\Validation\ShopListValidationResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ShopListValidationResource.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Messages\Validation\CategoryResource.resx">
+    <EmbeddedResource Update="Messages\TR\Info\CategoryInfoResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CategoryResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>CategoryInfoResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Messages\Validation\ProductResource.resx">
+    <EmbeddedResource Update="Messages\TR\Info\ProductInfoResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ProductResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>ProductInfoResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\TR\Validation\CategoryValidationResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CategoryValidationResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\TR\Validation\ProductValidationResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProductValidationResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\TR\Validation\ShopListValidationResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ShopListValidationResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

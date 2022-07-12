@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Teleperformance.Final.Project.Application.Messages.Validation {
+namespace Teleperformance.Final.Project.Application.Messages.TR.Validation {
     using System;
     
     
@@ -22,24 +22,25 @@ namespace Teleperformance.Final.Project.Application.Messages.Validation {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ProductResource {
+    internal class ShopListValidationResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ProductResource() {
+        internal ShopListValidationResource() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Teleperformance.Final.Project.Application.Messages.Validation.ProductResource", typeof(ProductResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Teleperformance.Final.Project.Application.Messages.TR.Validation.ShopListValidati" +
+                            "onResource", typeof(ShopListValidationResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,39 +52,12 @@ namespace Teleperformance.Final.Project.Application.Messages.Validation {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ürün İsmi {0} İle {1} Karakter Arasında Olmalıdır..
-        /// </summary>
-        public static string ProductNameLengthMustBe {
-            get {
-                return ResourceManager.GetString("ProductNameLengthMustBe", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ürün İsmi Boş Olamaz.
-        /// </summary>
-        public static string ProductNameNotNull {
-            get {
-                return ResourceManager.GetString("ProductNameNotNull", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ürünün Birimi Boş Olamaz.
-        /// </summary>
-        public static string ProductUnitNotNull {
-            get {
-                return ResourceManager.GetString("ProductUnitNotNull", resourceCulture);
             }
         }
     }

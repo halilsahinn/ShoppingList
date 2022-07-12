@@ -1,6 +1,6 @@
 ﻿namespace Teleperformance.Final.Project.Application.Constants
 {
-    public static class CustomClaimTypes
+    public static class CustomClaimTypesConstant
     {
         public const string Uid = "uid";
     }

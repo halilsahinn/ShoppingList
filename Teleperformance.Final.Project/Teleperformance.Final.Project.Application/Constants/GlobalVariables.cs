@@ -8,6 +8,11 @@
         /// </summary>
         #endregion
 
+        #region APPLICATION
+        public static string ApplicationName { get; set; } = "Teleperformans Bootcamp App";
+        #endregion
+
+
         #region SYSTEM
         private static string MachineName;
         public static string MACHINE_NAME
