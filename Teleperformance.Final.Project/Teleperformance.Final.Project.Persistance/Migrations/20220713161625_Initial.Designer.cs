@@ -12,14 +12,14 @@ using Teleperformance.Final.Project.Persistance.Contexs;
 namespace Teleperformance.Final.Project.Persistance.Migrations
 {
     [DbContext(typeof(ShoppingListDbContext))]
-    [Migration("20220712133041_Initial")]
+    [Migration("20220713161625_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.6")
+                .HasAnnotation("ProductVersion", "6.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -70,7 +70,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 1,
                             CategoryName = "Alışveriş Listesi",
-                            CreatedDate = new DateTime(2022, 7, 12, 13, 30, 41, 92, DateTimeKind.Utc).AddTicks(6477),
+                            CreatedDate = new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6714),
                             Description = "",
                             IsActive = true
                         },
@@ -78,7 +78,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 2,
                             CategoryName = "Film Listesi",
-                            CreatedDate = new DateTime(2022, 7, 12, 13, 30, 41, 92, DateTimeKind.Utc).AddTicks(6482),
+                            CreatedDate = new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6716),
                             Description = "",
                             IsActive = true
                         },
@@ -86,7 +86,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 3,
                             CategoryName = "Yapılacaklar Listesi",
-                            CreatedDate = new DateTime(2022, 7, 12, 13, 30, 41, 92, DateTimeKind.Utc).AddTicks(6483),
+                            CreatedDate = new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6717),
                             Description = "",
                             IsActive = true
                         });
@@ -153,7 +153,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 7, 12, 13, 30, 41, 92, DateTimeKind.Utc).AddTicks(6644),
+                            CreatedDate = new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6952),
                             Description = "",
                             IsActive = true,
                             ProductName = "Süt",
@@ -163,7 +163,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 7, 12, 13, 30, 41, 92, DateTimeKind.Utc).AddTicks(6646),
+                            CreatedDate = new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6955),
                             Description = "",
                             IsActive = true,
                             ProductName = "Çikolata",
@@ -173,7 +173,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 7, 12, 13, 30, 41, 92, DateTimeKind.Utc).AddTicks(6647),
+                            CreatedDate = new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6956),
                             Description = "",
                             IsActive = true,
                             ProductName = "Gazoz",
@@ -188,9 +188,6 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("CategoryEntityId")
-                        .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -237,8 +234,6 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryEntityId");
-
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Items", "ShopList");
@@ -261,12 +256,8 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
 
             modelBuilder.Entity("Teleperformance.Final.Project.Domain.ShopList.ShopListEntity", b =>
                 {
-                    b.HasOne("Teleperformance.Final.Project.Domain.Category.CategoryEntity", null)
-                        .WithMany("ShopList")
-                        .HasForeignKey("CategoryEntityId");
-
                     b.HasOne("Teleperformance.Final.Project.Domain.Category.CategoryEntity", "Category")
-                        .WithMany()
+                        .WithMany("ShopList")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

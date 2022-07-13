@@ -30,7 +30,7 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework
             return entity != null;
         }
 
-        public async Task<IList<T>> GetAll()
+        public async Task<List<T>> GetAll()
         {
             return await _dbContext.Set<T>().ToListAsync();
         }

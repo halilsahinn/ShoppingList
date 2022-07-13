@@ -6,7 +6,7 @@ namespace Teleperformance.Final.Project.Application.Contracts.Repositories
     {
 
         Task<T> Get(int id);
-        Task<IList<T>> GetAll();
+        Task<List<T>> GetAll();
         Task<T> Add(T entity);
         Task<bool> Exists(int id);
         Task Update(T entity);

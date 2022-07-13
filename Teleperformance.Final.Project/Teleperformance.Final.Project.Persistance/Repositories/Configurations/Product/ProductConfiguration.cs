@@ -32,7 +32,7 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Configurations.
 
             #region RELATIONS
 
-            builder.HasOne(p => p.Category).WithMany(c => c.Products).HasForeignKey(p => p.CategoryId);
+            //builder.HasOne(p => p.Category).WithMany(c => c.Products).HasForeignKey(p => p.CategoryId);
 
 
             #endregion

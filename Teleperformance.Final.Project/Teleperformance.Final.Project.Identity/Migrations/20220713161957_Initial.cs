@@ -13,23 +13,6 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                 name: "Identity");
 
             migrationBuilder.CreateTable(
-                name: "CategoryEntity",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CategoryEntity", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Role",
                 schema: "Identity",
                 columns: table => new
@@ -93,41 +76,6 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                         principalTable: "Role",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ShopListEntity",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    Unit = table.Column<byte>(type: "tinyint", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    IsComplete = table.Column<bool>(type: "bit", nullable: false),
-                    CompletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ShopListEntity", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ShopListEntity_CategoryEntity_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "CategoryEntity",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ShopListEntity_User_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
-                        principalSchema: "Identity",
-                        principalTable: "User",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -224,45 +172,14 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "ProductEntity",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Unit = table.Column<byte>(type: "tinyint", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    ShopListEntityId = table.Column<int>(type: "int", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductEntity", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ProductEntity_CategoryEntity_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "CategoryEntity",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProductEntity_ShopListEntity_ShopListEntityId",
-                        column: x => x.ShopListEntityId,
-                        principalTable: "ShopListEntity",
-                        principalColumn: "Id");
-                });
-
             migrationBuilder.InsertData(
                 schema: "Identity",
                 table: "Role",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "cac43a6e-f7bb-4448-baaf-1add431ccbbf", "b554d527-0797-48c7-a6a1-faab2c9dd572", "User", "USER" },
-                    { "cbc43a8e-f7bb-4445-baaf-1add431ffbbf", "9c39734c-81b8-4be2-8778-032c2a826337", "Administrator", "ADMINISTRATOR" }
+                    { "cac43a6e-f7bb-4448-baaf-1add431ccbbf", "8f3b73c1-01ff-421d-9679-5742faefd3c4", "User", "USER" },
+                    { "cbc43a8e-f7bb-4445-baaf-1add431ffbbf", "ebf37bab-7719-4e22-85e0-5bf44d6ba8ab", "Administrator", "ADMINISTRATOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -271,8 +188,8 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "916fcbd5-efb6-4a5d-b47d-f608181be493", "admin@localhost.com", true, "System", "Admin", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAEAACcQAAAAENFqgIIjoQVOHE+KYlIFRj6cXjGLVFAQJyQD52wrbZIICHzaFRCcPGrESBXnZrAbEw==", null, false, "f0216a99-66c5-47b0-8a36-9c367404c815", false, "admin@localhost.com" },
-                    { "9e224968-33e4-4652-b7b7-8574d048cdb9", 0, "d6db3afc-d4c3-49f4-9572-dd271ede33eb", "user@localhost.com", true, "System", "User", false, null, "USER@LOCALHOST.COM", "USER@LOCALHOST.COM", "AQAAAAEAACcQAAAAEA2kZC5f/uDwlCEaIhvWnbY59tbc2f2VDlSm5PIenGwIu2D/4IvllqGgDKO3qNQrvg==", null, false, "e6a57d38-1d79-46fd-8280-b2a7851c4369", false, "user@localhost.com" }
+                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "f6fe3c74-1ac2-414c-a94c-62f446f13fe4", "admin@localhost.com", true, "System", "Admin", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAEAACcQAAAAEBqsgqzJjUVo7yM7PdY2KfdcXPOjOatpiH0f4s/u1Eck8d9E7Qnx0GhyYBTbYmGvQw==", null, false, "0c1db656-3a64-4a56-9caa-e6983d8357bd", false, "admin@localhost.com" },
+                    { "9e224968-33e4-4652-b7b7-8574d048cdb9", 0, "58ad2daa-54d0-4ab3-8a86-8f283316d7bb", "user@localhost.com", true, "System", "User", false, null, "USER@LOCALHOST.COM", "USER@LOCALHOST.COM", "AQAAAAEAACcQAAAAEKXbS0xIUNEYiDWY2WzBepO+Y+d9kXxM1UiB8f2mV5gCnsN3dSRxGp+u2Ld5TqsU2A==", null, false, "7d85df35-b407-4417-a695-5b1b16524b3a", false, "user@localhost.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -288,16 +205,6 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                 values: new object[] { "cac43a6e-f7bb-4448-baaf-1add431ccbbf", "9e224968-33e4-4652-b7b7-8574d048cdb9" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductEntity_CategoryId",
-                table: "ProductEntity",
-                column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductEntity_ShopListEntityId",
-                table: "ProductEntity",
-                column: "ShopListEntityId");
-
-            migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
                 schema: "Identity",
                 table: "Role",
@@ -310,16 +217,6 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                 schema: "Identity",
                 table: "RoleClaims",
                 column: "RoleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ShopListEntity_ApplicationUserId",
-                table: "ShopListEntity",
-                column: "ApplicationUserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ShopListEntity_CategoryId",
-                table: "ShopListEntity",
-                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
@@ -357,9 +254,6 @@ namespace Teleperformance.Final.Project.Identity.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ProductEntity");
-
-            migrationBuilder.DropTable(
                 name: "RoleClaims",
                 schema: "Identity");
 
@@ -380,14 +274,8 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                 schema: "Identity");
 
             migrationBuilder.DropTable(
-                name: "ShopListEntity");
-
-            migrationBuilder.DropTable(
                 name: "Role",
                 schema: "Identity");
-
-            migrationBuilder.DropTable(
-                name: "CategoryEntity");
 
             migrationBuilder.DropTable(
                 name: "User",

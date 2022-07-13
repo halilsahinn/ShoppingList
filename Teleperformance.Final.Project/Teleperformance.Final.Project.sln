@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleperformance.Final.Proje
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleperformance.Final.Project.MongoDb", "Teleperformance.Final.Project.MongoDb\Teleperformance.Final.Project.MongoDb.csproj", "{237DEC7B-658B-48B0-8F63-F5B10B14EE67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teleperformance.Final.Project.Caching", "Teleperformance.Final.Project.Caching\Teleperformance.Final.Project.Caching.csproj", "{174BEAA2-B722-4A09-91BA-249418EB1FAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleperformance.Final.Project.Caching", "Teleperformance.Final.Project.Caching\Teleperformance.Final.Project.Caching.csproj", "{174BEAA2-B722-4A09-91BA-249418EB1FAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teleperformance.Final.Project.MessageBroker", "Teleperformance.Final.Project.MessageBroker\Teleperformance.Final.Project.MessageBroker.csproj", "{6E61A0E2-0A08-44D1-8A8F-4677C8858EFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{174BEAA2-B722-4A09-91BA-249418EB1FAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{174BEAA2-B722-4A09-91BA-249418EB1FAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{174BEAA2-B722-4A09-91BA-249418EB1FAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E61A0E2-0A08-44D1-8A8F-4677C8858EFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E61A0E2-0A08-44D1-8A8F-4677C8858EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E61A0E2-0A08-44D1-8A8F-4677C8858EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E61A0E2-0A08-44D1-8A8F-4677C8858EFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +106,7 @@ Global
 		{BC2D90F1-076F-4B39-BC8E-F0D33A38B29B} = {B10601BC-C8E8-46E6-90EA-0AD63AECC203}
 		{237DEC7B-658B-48B0-8F63-F5B10B14EE67} = {1824F686-AC2B-43BF-868C-B6A8869E65A9}
 		{174BEAA2-B722-4A09-91BA-249418EB1FAD} = {1824F686-AC2B-43BF-868C-B6A8869E65A9}
+		{6E61A0E2-0A08-44D1-8A8F-4677C8858EFA} = {1824F686-AC2B-43BF-868C-B6A8869E65A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4AAB8AEE-FAB8-46AA-85DB-8E6B19B4F00F}

@@ -5,6 +5,7 @@ using Teleperformance.Final.Project.Application.Contracts.Repositories;
 using Teleperformance.Final.Project.Application.Contracts.UnitOfWork;
 using Teleperformance.Final.Project.Application.DTOs.Product;
 using Teleperformance.Final.Project.Application.Feautures.Base;
+using Teleperformance.Final.Project.Domain.Product;
 
 namespace Teleperformance.Final.Project.Application.Feautures.Product.Queries
 {
@@ -29,8 +30,13 @@ namespace Teleperformance.Final.Project.Application.Feautures.Product.Queries
 
         public async Task<List<ProductDto>> Handle(GetAllProductQuery request, CancellationToken cancellationToken)
         {
-            var productList = _productRepository.GetAll();
-            return _mapper.Map<List<ProductDto>>(productList);
+            var productList = new List<ProductEntity>();
+            var productDtoList = new List<ProductDto>();
+            productList = await  _productRepository.GetAll();
+
+            productDtoList = _mapper.Map<List<ProductDto>>(productList);
+             
+            return productDtoList;
 
         }
     }

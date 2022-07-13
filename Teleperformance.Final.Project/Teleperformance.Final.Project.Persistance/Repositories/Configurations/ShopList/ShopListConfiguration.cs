@@ -28,8 +28,8 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Configurations.
 
             #region RELATIONS
 
-            builder.HasOne(e => e.Category).WithMany(); 
-            builder.HasMany(e => e.Products);
+            //builder.HasOne(e => e.Category).WithMany(); 
+            //builder.HasMany(e => e.Products);
 
             #endregion
 
