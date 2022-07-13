@@ -5,13 +5,14 @@ namespace Teleperformance.Final.Project.Persistance.Contexs.Base
 {
     public abstract class ContextBase : DbContext
     {
-
+        #region SUMMARY
         /// <summary>
         /// Bu class contex save changes metodu tetiklendiğinde base entity'den miras alan 
         /// entity' lerin createdate ve updatedate leri savechanges metdou tetiklendiğinde otomatik setler.
         /// </summary>
         /// <param name="options">@options</param>
-       
+        #endregion
+
         #region CTOR
         public ContextBase(DbContextOptions options) : base(options)
         {

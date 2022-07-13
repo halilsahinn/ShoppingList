@@ -33,6 +33,12 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
         #endregion
 
         #region ACTION RESULTS
+        /// <summary>
+        /// Varsayılan Admin Kullanıcı Adı: admin@localhost.com Şifre: P@ssword1
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        // GET: api/<AccountController>
         [HttpPost("login")]
         public async Task<ActionResult<AuthResponse>> Login(AuthRequest request)
         {

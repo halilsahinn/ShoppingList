@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Teleperformance.Final.Project.Domain.Category;
 using Teleperformance.Final.Project.Domain.ShopList;
 
 namespace Teleperformance.Final.Project.Persistance.Repositories.Configurations.ShopList
@@ -14,8 +15,8 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Configurations.
             builder.Property(p => p.Id).UseIdentityColumn();
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
 
+            builder.Property(p => p.Title).HasColumnName("Title").HasColumnOrder(1).HasMaxLength(500);
 
-          
 
             builder.Property(p => p.CreatedDate).HasColumnName("CreateDate").HasColumnOrder(4);
             builder.Property(p => p.UpdatedDate).HasColumnName("UpatedDate").HasColumnOrder(5);
@@ -27,7 +28,8 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Configurations.
 
             #region RELATIONS
 
-
+            builder.HasOne(e => e.Category).WithMany(); 
+            builder.HasMany(e => e.Products);
 
             #endregion
 

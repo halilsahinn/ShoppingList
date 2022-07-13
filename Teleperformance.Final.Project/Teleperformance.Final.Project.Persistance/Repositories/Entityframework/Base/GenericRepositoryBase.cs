@@ -2,13 +2,13 @@
 using Teleperformance.Final.Project.Application.Contracts.Repositories;
 using Teleperformance.Final.Project.Persistance.Contexs;
 
-namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework
+namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework.Base
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepositoryBase<T> : IGenericRepository<T> where T : class
     {
         private readonly ShoppingListDbContext _dbContext;
 
-        public GenericRepository(ShoppingListDbContext dbContext)
+        public GenericRepositoryBase(ShoppingListDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -30,7 +30,7 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework
             return entity != null;
         }
 
-        public async Task<IReadOnlyList<T>> GetAll()
+        public async Task<IList<T>> GetAll()
         {
             return await _dbContext.Set<T>().ToListAsync();
         }
@@ -42,7 +42,7 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework
 
         public async Task Update(T entity)
         {
-              _dbContext.Entry(entity).State = EntityState.Modified;
+            _dbContext.Entry(entity).State = EntityState.Modified;
         }
     }
 }

@@ -30,8 +30,7 @@ namespace Teleperformance.Final.Project.Consumer.Worker
         }
 
         #endregion
-
-
+         
         #region METHODS
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {

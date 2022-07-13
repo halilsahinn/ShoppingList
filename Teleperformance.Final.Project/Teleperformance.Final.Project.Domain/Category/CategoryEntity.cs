@@ -1,5 +1,6 @@
 ﻿using Teleperformance.Final.Project.Domain.Base;
 using Teleperformance.Final.Project.Domain.Product;
+using Teleperformance.Final.Project.Domain.ShopList;
 
 namespace Teleperformance.Final.Project.Domain.Category
 {
@@ -12,6 +13,7 @@ namespace Teleperformance.Final.Project.Domain.Category
         #region NAVIGATION PROPERTIES
 
         public IList<ProductEntity> Products { get; set; }
+        public IList<ShopListEntity> ShopList { get; set; }
 
         #endregion
 

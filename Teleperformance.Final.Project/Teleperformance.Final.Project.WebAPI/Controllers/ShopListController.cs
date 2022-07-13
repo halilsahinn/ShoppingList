@@ -8,9 +8,9 @@ using Teleperformance.Final.Project.WebAPI.Controllers.Base;
 
 namespace Teleperformance.Final.Project.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     [Authorize]
+    [ApiVersion("1.0")]
+
     public class ShopListController : BaseController
     { 
         #region FIELDS

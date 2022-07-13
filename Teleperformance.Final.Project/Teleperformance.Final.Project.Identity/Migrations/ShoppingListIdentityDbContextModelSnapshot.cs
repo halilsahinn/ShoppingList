@@ -52,14 +52,14 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                         new
                         {
                             Id = "cac43a6e-f7bb-4448-baaf-1add431ccbbf",
-                            ConcurrencyStamp = "311a6019-86e3-4ef1-953b-b692d40a3484",
+                            ConcurrencyStamp = "b554d527-0797-48c7-a6a1-faab2c9dd572",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "cbc43a8e-f7bb-4445-baaf-1add431ffbbf",
-                            ConcurrencyStamp = "25caac8b-3b3e-4377-8db2-07b60bea5760",
+                            ConcurrencyStamp = "9c39734c-81b8-4be2-8778-032c2a826337",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -183,6 +183,128 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                     b.ToTable("UserTokens", "Identity");
                 });
 
+            modelBuilder.Entity("Teleperformance.Final.Project.Domain.Category.CategoryEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CategoryEntity");
+                });
+
+            modelBuilder.Entity("Teleperformance.Final.Project.Domain.Product.ProductEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ShopListEntityId")
+                        .HasColumnType("int");
+
+                    b.Property<byte>("Unit")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ShopListEntityId");
+
+                    b.ToTable("ProductEntity");
+                });
+
+            modelBuilder.Entity("Teleperformance.Final.Project.Domain.ShopList.ShopListEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CompletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("Unit")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("ShopListEntity");
+                });
+
             modelBuilder.Entity("Teleperformance.Final.Project.Identity.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -260,7 +382,7 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7d3099f9-c96b-46f1-9fce-969bbde88d1b",
+                            ConcurrencyStamp = "916fcbd5-efb6-4a5d-b47d-f608181be493",
                             Email = "admin@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -268,9 +390,9 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELeQ58EI4a2HIYaAR7/GCdhZuYR9z07VpbEbDI2DDwopifnZUW9t46sXZ5y9nDIJMw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENFqgIIjoQVOHE+KYlIFRj6cXjGLVFAQJyQD52wrbZIICHzaFRCcPGrESBXnZrAbEw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7838cf85-ee73-428b-9caf-2dfeee17263a",
+                            SecurityStamp = "f0216a99-66c5-47b0-8a36-9c367404c815",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -278,7 +400,7 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                         {
                             Id = "9e224968-33e4-4652-b7b7-8574d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d0d2a470-9ec9-4522-a4d8-713fdd971eb3",
+                            ConcurrencyStamp = "d6db3afc-d4c3-49f4-9572-dd271ede33eb",
                             Email = "user@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -286,9 +408,9 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.COM",
                             NormalizedUserName = "USER@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPm2nPEAIRbHvtox6dZOnkV7D4rLrzyos41YbLUol12+Y5AN11j4U5lr4Lxcv+tbbA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA2kZC5f/uDwlCEaIhvWnbY59tbc2f2VDlSm5PIenGwIu2D/4IvllqGgDKO3qNQrvg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4ab6e0fc-95ec-4de7-9a7f-6c10e3b60991",
+                            SecurityStamp = "e6a57d38-1d79-46fd-8280-b2a7851c4369",
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.com"
                         });
@@ -343,6 +465,53 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Teleperformance.Final.Project.Domain.Product.ProductEntity", b =>
+                {
+                    b.HasOne("Teleperformance.Final.Project.Domain.Category.CategoryEntity", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Teleperformance.Final.Project.Domain.ShopList.ShopListEntity", null)
+                        .WithMany("Products")
+                        .HasForeignKey("ShopListEntityId");
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Teleperformance.Final.Project.Domain.ShopList.ShopListEntity", b =>
+                {
+                    b.HasOne("Teleperformance.Final.Project.Identity.Models.ApplicationUser", null)
+                        .WithMany("ShoppingLists")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("Teleperformance.Final.Project.Domain.Category.CategoryEntity", "Category")
+                        .WithMany("ShopList")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Teleperformance.Final.Project.Domain.Category.CategoryEntity", b =>
+                {
+                    b.Navigation("Products");
+
+                    b.Navigation("ShopList");
+                });
+
+            modelBuilder.Entity("Teleperformance.Final.Project.Domain.ShopList.ShopListEntity", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("Teleperformance.Final.Project.Identity.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("ShoppingLists");
                 });
 #pragma warning restore 612, 618
         }

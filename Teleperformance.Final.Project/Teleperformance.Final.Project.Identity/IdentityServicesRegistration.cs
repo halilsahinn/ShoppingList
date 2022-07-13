@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Teleperformance.Final.Project.Application.Constants;
 using Teleperformance.Final.Project.Application.Contracts.Identity;
 using Teleperformance.Final.Project.Application.Models.Identity;
 using Teleperformance.Final.Project.Identity.Models;
@@ -20,7 +21,9 @@ namespace Teleperformance.Final.Project.Identity
             services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
 
             services.AddDbContext<ShoppingListIdentityDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("IdentityConnectionString"),
+                options.UseSqlServer(
+                    GlobalVariables.CONNECTION_STRING,
+                    //configuration.GetConnectionString("IdentityConnectionString"),
                 b => b.MigrationsAssembly(typeof(ShoppingListIdentityDbContext).Assembly.FullName)));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -39,7 +42,7 @@ namespace Teleperformance.Final.Project.Identity
                     o.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
-                        ValidateIssuer = true,
+                        ValidateIssuer = false,
                         ValidateAudience = true,
                         ValidateLifetime = true,
                         ClockSkew = TimeSpan.Zero,

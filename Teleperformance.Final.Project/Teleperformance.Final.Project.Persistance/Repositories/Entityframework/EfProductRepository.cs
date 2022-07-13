@@ -1,10 +1,11 @@
 ﻿using Teleperformance.Final.Project.Application.Contracts.Repositories;
 using Teleperformance.Final.Project.Domain.Product;
 using Teleperformance.Final.Project.Persistance.Contexs;
+using Teleperformance.Final.Project.Persistance.Repositories.Entityframework.Base;
 
 namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework
 {
-    public class EfProductRepository : GenericRepository<ProductEntity>, IProductRepository
+    public class EfProductRepository : GenericRepositoryBase<ProductEntity>, IProductRepository
     {
         private readonly ShoppingListDbContext _dbContext;
 

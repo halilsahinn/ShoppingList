@@ -26,13 +26,13 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)")
                         .HasColumnName("CategoryName")
@@ -41,23 +41,23 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("CreateDate")
-                        .HasColumnOrder(4);
+                        .HasColumnOrder(3);
 
                     b.Property<string>("Description")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)")
                         .HasColumnName("Description")
-                        .HasColumnOrder(8);
+                        .HasColumnOrder(5);
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit")
                         .HasColumnName("IsActive")
-                        .HasColumnOrder(9);
+                        .HasColumnOrder(6);
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("UpatedDate")
-                        .HasColumnOrder(5);
+                        .HasColumnOrder(4);
 
                     b.HasKey("Id");
 
@@ -68,7 +68,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 1,
                             CategoryName = "Alışveriş Listesi",
-                            CreatedDate = new DateTime(2022, 7, 6, 12, 12, 40, 790, DateTimeKind.Utc).AddTicks(2482),
+                            CreatedDate = new DateTime(2022, 7, 12, 13, 30, 41, 92, DateTimeKind.Utc).AddTicks(6477),
                             Description = "",
                             IsActive = true
                         },
@@ -76,7 +76,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 2,
                             CategoryName = "Film Listesi",
-                            CreatedDate = new DateTime(2022, 7, 6, 12, 12, 40, 790, DateTimeKind.Utc).AddTicks(2485),
+                            CreatedDate = new DateTime(2022, 7, 12, 13, 30, 41, 92, DateTimeKind.Utc).AddTicks(6482),
                             Description = "",
                             IsActive = true
                         },
@@ -84,7 +84,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 3,
                             CategoryName = "Yapılacaklar Listesi",
-                            CreatedDate = new DateTime(2022, 7, 6, 12, 12, 40, 790, DateTimeKind.Utc).AddTicks(2486),
+                            CreatedDate = new DateTime(2022, 7, 12, 13, 30, 41, 92, DateTimeKind.Utc).AddTicks(6483),
                             Description = "",
                             IsActive = true
                         });
@@ -94,32 +94,34 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CategoryEntityId")
-                        .HasColumnType("int");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int")
+                        .HasColumnName("CategoryId")
+                        .HasColumnOrder(3);
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("CreateDate")
-                        .HasColumnOrder(4);
+                        .HasColumnOrder(5);
 
                     b.Property<string>("Description")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)")
                         .HasColumnName("Description")
-                        .HasColumnOrder(8);
+                        .HasColumnOrder(4);
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit")
                         .HasColumnName("IsActive")
-                        .HasColumnOrder(9);
+                        .HasColumnOrder(7);
 
                     b.Property<string>("ProductName")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)")
                         .HasColumnName("ProductName")
@@ -134,11 +136,11 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("UpatedDate")
-                        .HasColumnOrder(5);
+                        .HasColumnOrder(6);
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryEntityId");
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("ShopListEntityId");
 
@@ -148,7 +150,8 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 7, 6, 12, 12, 40, 790, DateTimeKind.Utc).AddTicks(2666),
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2022, 7, 12, 13, 30, 41, 92, DateTimeKind.Utc).AddTicks(6644),
                             Description = "",
                             IsActive = true,
                             ProductName = "Süt",
@@ -157,7 +160,8 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 7, 6, 12, 12, 40, 790, DateTimeKind.Utc).AddTicks(2668),
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2022, 7, 12, 13, 30, 41, 92, DateTimeKind.Utc).AddTicks(6646),
                             Description = "",
                             IsActive = true,
                             ProductName = "Çikolata",
@@ -166,7 +170,8 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2022, 7, 6, 12, 12, 40, 790, DateTimeKind.Utc).AddTicks(2669),
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2022, 7, 12, 13, 30, 41, 92, DateTimeKind.Utc).AddTicks(6647),
                             Description = "",
                             IsActive = true,
                             ProductName = "Gazoz",
@@ -182,8 +187,14 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int?>("CategoryEntityId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("CompletedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2")
@@ -201,11 +212,15 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         .HasColumnName("IsActive")
                         .HasColumnOrder(9);
 
-                    b.Property<bool>("IsTaken")
+                    b.Property<bool>("IsComplete")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("Title")
+                        .HasColumnOrder(1);
 
                     b.Property<byte>("Unit")
                         .HasColumnType("tinyint");
@@ -215,7 +230,12 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         .HasColumnName("UpatedDate")
                         .HasColumnOrder(5);
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryEntityId");
 
                     b.HasIndex("CategoryId");
 
@@ -224,17 +244,25 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
 
             modelBuilder.Entity("Teleperformance.Final.Project.Domain.Product.ProductEntity", b =>
                 {
-                    b.HasOne("Teleperformance.Final.Project.Domain.Category.CategoryEntity", null)
+                    b.HasOne("Teleperformance.Final.Project.Domain.Category.CategoryEntity", "Category")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryEntityId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Teleperformance.Final.Project.Domain.ShopList.ShopListEntity", null)
                         .WithMany("Products")
                         .HasForeignKey("ShopListEntityId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Teleperformance.Final.Project.Domain.ShopList.ShopListEntity", b =>
                 {
+                    b.HasOne("Teleperformance.Final.Project.Domain.Category.CategoryEntity", null)
+                        .WithMany("ShopList")
+                        .HasForeignKey("CategoryEntityId");
+
                     b.HasOne("Teleperformance.Final.Project.Domain.Category.CategoryEntity", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
@@ -247,6 +275,8 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
             modelBuilder.Entity("Teleperformance.Final.Project.Domain.Category.CategoryEntity", b =>
                 {
                     b.Navigation("Products");
+
+                    b.Navigation("ShopList");
                 });
 
             modelBuilder.Entity("Teleperformance.Final.Project.Domain.ShopList.ShopListEntity", b =>

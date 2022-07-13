@@ -10,7 +10,8 @@ using Teleperformance.Final.Project.WebAPI.Controllers.Base;
 namespace Teleperformance.Final.Project.WebAPI.Controllers
 {
     [Authorize]
-     
+    [ApiVersion("1.0")]
+
     public class ProductController : BaseController
     {
 
@@ -39,6 +40,15 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
         {
 
             var product = await _mediator.Send(new GetByIdQuery { Id = id });
+            return Ok(product);
+        }
+
+        [HttpGet]
+        
+        public async Task<ActionResult<List<ProductDto>>> GetAll()
+        {
+
+            var product = await _mediator.Send(new GetAllProductQuery() { });
             return Ok(product);
         }
         #endregion

@@ -15,5 +15,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Teleperformance.Final.Project.Application\Teleperformance.Final.Project.Application.csproj" />
     <ProjectReference Include="..\Teleperformance.Final.Project.MongoDb\Teleperformance.Final.Project.MongoDb.csproj" />
+    <ProjectReference Include="..\Teleperformance.Final.Project.Persistance\Teleperformance.Final.Project.Persistance.csproj" />
   </ItemGroup>
 </Project>

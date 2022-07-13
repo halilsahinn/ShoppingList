@@ -43,7 +43,7 @@ namespace Teleperformance.Final.Project.Application.Feautures.Category.Commands.
             {
                 var result = _mapper.Map<CategoryEntity>(request.categoryDto);
 
-                // result = await _unitOfWork.ProductRepository.Add(result);
+                 result = await _unitOfWork.CategoryRepository.Add(result);
                 await _unitOfWork.Save();
 
 

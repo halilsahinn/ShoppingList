@@ -29,13 +29,14 @@
         #endregion
 
         #region DATABASE
-        public static string DB_SERVER_ADRDESS { get; set; }
-        public static string DB_USER_NAME { get; set; }
-        public static string DB_PASSWORD { get; set; }
+        public static string DB_SERVER_ADRDESS { get; set; } = "";
+        public static string DB_NAME { get; set; } = "ShoppingListDb";
+        public static string DB_USER_NAME { get; set; } = "";
+        public static string DB_PASSWORD { get; set; } = "";
 
         public static int DB_PORT { get; set; }
 
-        public static string CONNECTION_STRING = $@"Server={MACHINE_NAME};Database={DB_USER_NAME};Trusted_Connection=True;Connect Timeout = 30; MultipleActiveResultSets=True;";
+        public static string CONNECTION_STRING = $@"Server={MACHINE_NAME};Database={DB_NAME};Trusted_Connection=True;Connect Timeout = 30; MultipleActiveResultSets=True;";
 
         public static string DEFAULT_SCHEMA { get; set; } = "dbo";
         #endregion

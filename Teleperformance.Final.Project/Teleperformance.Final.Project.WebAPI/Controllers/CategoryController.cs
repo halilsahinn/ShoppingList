@@ -9,7 +9,7 @@ using Teleperformance.Final.Project.WebAPI.Controllers.Base;
 namespace Teleperformance.Final.Project.WebAPI.Controllers
 {
     [Authorize]
-    [ApiVersion("2.0")]
+    [ApiVersion("1.0")]
     public class CategoryController : BaseController
     {
         #region FIELDS
@@ -17,14 +17,12 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
 
         #endregion
 
-
         #region CTOR
         public CategoryController(IMediator mediator)
         {
             _mediator = mediator;
         }
         #endregion
-
 
         #region METHODS
 

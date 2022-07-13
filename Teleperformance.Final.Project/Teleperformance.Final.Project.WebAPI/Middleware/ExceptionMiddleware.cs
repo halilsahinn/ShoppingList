@@ -45,7 +45,7 @@ namespace Teleperformance.Final.Project.WebAPI.Middleware
                   
                     strResultBuilder.Append(JsonConvert.SerializeObject(validationException.Errors));
                     strResultBuilder.Append(JsonConvert.SerializeObject(validationException.InnerException));
-                    strResultBuilder.Append(JsonConvert.SerializeObject(validationException.Message  ));
+                    strResultBuilder.Append(JsonConvert.SerializeObject(validationException.Message));
                     
                     break;
                 case NotFoundException notFoundException:
@@ -69,7 +69,7 @@ namespace Teleperformance.Final.Project.WebAPI.Middleware
                  .MinimumLevel.Debug()
                  .WriteTo.Console()
                   .WriteTo.File($"Logs\\{DateTime.Now.ToString("dd-MM-yyyy")}-log.txt",
-    outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
+                     outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
                  .CreateLogger();
 
             Log.Error(strResultBuilder.ToString());
