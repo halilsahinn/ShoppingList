@@ -1,5 +1,10 @@
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using System.Diagnostics;
+using System.Text;
+using System.Text.Json;
 using Teleperformance.Final.Project.Application.Contracts.MongoDb;
+using Teleperformance.Final.Project.Application.RabbitMq;
 using Teleperformance.Final.Project.MongoDb.Model;
 
 namespace Teleperformance.Final.Project.Consumer.Worker
@@ -10,6 +15,7 @@ namespace Teleperformance.Final.Project.Consumer.Worker
 
 
         private readonly IMongoDbConnector _mongoDbConnector;
+        private readonly IRabbitMqConnector _rabbitMqConnector;
         private EventLog _eventLogger;
 
         #endregion
@@ -17,9 +23,12 @@ namespace Teleperformance.Final.Project.Consumer.Worker
         #region CTOR
 
 
-        public Worker(IMongoDbConnector mongoDbConnector)
+        public Worker(IMongoDbConnector mongoDbConnector, IRabbitMqConnector rabbitMqConnector)
         {
+
+            _rabbitMqConnector = rabbitMqConnector;
             _mongoDbConnector = mongoDbConnector;
+            
 
             _eventLogger = new EventLog();
             _eventLogger.Source = "Application";
@@ -36,14 +45,34 @@ namespace Teleperformance.Final.Project.Consumer.Worker
         {
 
             var collection = _mongoDbConnector.Connect<ShoppingListBson>();
+            
 
             try
             {
+               
+
+
 
                 _eventLogger.WriteEntry($"Worker Çalýþmaya Baþladý: {DateTimeOffset.Now}", EventLogEntryType.Information);
 
                 while (!stoppingToken.IsCancellationRequested)
                 {
+
+                    var connection = _rabbitMqConnector.Connect();
+                    var channel = connection.CreateModel();
+                    channel.QueueDeclare("direct.queuName", false, false, false);
+                    var consumer = new EventingBasicConsumer(channel);
+
+
+                    consumer.Received += async (sender, args) =>
+                    {
+                        var message = JsonSerializer.Deserialize<ShoppingListBson>(Encoding.UTF8.GetString(args.Body.ToArray()));
+
+
+                        await collection.InsertOneAsync(message);
+                    };
+
+                    channel.BasicConsume("direct.queuName", false, consumer);
                     await Task.Delay(1000, stoppingToken);
 
                 }

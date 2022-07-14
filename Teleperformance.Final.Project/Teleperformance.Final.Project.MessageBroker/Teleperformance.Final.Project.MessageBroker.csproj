@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="RabbitMq\Configuration\" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Teleperformance.Final.Project.Application\Teleperformance.Final.Project.Application.csproj" />
   </ItemGroup>
 
 </Project>

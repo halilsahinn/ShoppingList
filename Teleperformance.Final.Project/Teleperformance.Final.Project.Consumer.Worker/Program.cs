@@ -1,5 +1,7 @@
 using Teleperformance.Final.Project.Application.Contracts.MongoDb;
+using Teleperformance.Final.Project.Application.RabbitMq;
 using Teleperformance.Final.Project.Consumer.Worker;
+using Teleperformance.Final.Project.MessageBroker.RabbitMq.Connector;
 using Teleperformance.Final.Project.MongoDb.Connector;
 
 IHost host = Host.CreateDefaultBuilder(args)
@@ -7,7 +9,7 @@ IHost host = Host.CreateDefaultBuilder(args)
     {
         services.AddHostedService<Worker>();
         services.AddTransient<IMongoDbConnector, MongoDbConnector>();
-      // services.AddTransient<IRabbitmqConnection, RabbitmqConnection>();
+        services.AddTransient<IRabbitMqConnector, RabbitMqConnector>();
         
     })
     .Build();

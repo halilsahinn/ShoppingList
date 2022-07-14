@@ -11,7 +11,7 @@ using Teleperformance.Final.Project.Identity.Models;
 
 namespace Teleperformance.Final.Project.Identity.Services
 {
-    internal class AuthService : IAuthService
+    public class AuthService : IAuthService
     {
         #region FIELDS
         private readonly UserManager<ApplicationUser> _userManager;
@@ -67,7 +67,7 @@ namespace Teleperformance.Final.Project.Identity.Services
 
             if (existingUser != null)
             {
-                throw new Exception($"Username '{request.UserName}' already exists.");
+                throw new Exception($"'{request.UserName}' kullanıcısı kayıtlı.");
             }
 
             var user = new ApplicationUser
@@ -87,7 +87,7 @@ namespace Teleperformance.Final.Project.Identity.Services
 
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "Employee");
+                    await _userManager.AddToRoleAsync(user, "User");
                     return new RegistrationResponse() { UserId = user.Id };
                 }
                 else
@@ -97,7 +97,7 @@ namespace Teleperformance.Final.Project.Identity.Services
             }
             else
             {
-                throw new Exception($"Email {request.Email} already exists.");
+                throw new Exception($"{request.Email} zaten kayıtlı.");
             }
         }
 
