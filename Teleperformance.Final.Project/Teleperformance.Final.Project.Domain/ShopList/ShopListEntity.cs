@@ -12,8 +12,6 @@ namespace Teleperformance.Final.Project.Domain.ShopList
 
         public int CategoryId { get; set; }
 
-        public byte Unit { get; set; }
-
         public int UserId { get; set; }
 
         public bool IsComplete { get; set; }

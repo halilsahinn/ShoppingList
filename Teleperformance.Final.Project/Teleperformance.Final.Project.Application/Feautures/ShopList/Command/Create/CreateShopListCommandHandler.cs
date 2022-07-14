@@ -7,7 +7,7 @@ using Teleperformance.Final.Project.Application.Responses;
 using Teleperformance.Final.Project.Application.ValidationRules.ShopList;
 using Teleperformance.Final.Project.Domain.ShopList;
 
-namespace Teleperformance.Final.Project.Application.Feautures.ShopList.Command
+namespace Teleperformance.Final.Project.Application.Feautures.ShopList.Command.Create
 {
     #region COMMAND
     public class CreateShopListCommand : IRequest<BaseCommandResponse>
@@ -20,11 +20,11 @@ namespace Teleperformance.Final.Project.Application.Feautures.ShopList.Command
 
     #region HANDLER
     public class CreateShopListCommandHandler : BaseHandler, IRequestHandler<CreateShopListCommand, BaseCommandResponse>
-    { 
+    {
         #region CTOR
-        public CreateShopListCommandHandler(IUnitOfWork unitOfWork, IMapper mapper):base(unitOfWork, mapper)
+        public CreateShopListCommandHandler(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
         {
-           
+
         }
         #endregion
 
@@ -45,7 +45,7 @@ namespace Teleperformance.Final.Project.Application.Feautures.ShopList.Command
             {
                 var result = _mapper.Map<ShopListEntity>(request.shopListDto);
 
-               // result = await _unitOfWork.ShopListRepository.Add(result);
+                // result = await _unitOfWork.ShopListRepository.Add(result);
                 await _unitOfWork.Save();
 
                 response.Success = true;

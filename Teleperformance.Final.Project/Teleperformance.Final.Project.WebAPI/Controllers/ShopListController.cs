@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Teleperformance.Final.Project.Application.DTOs.ShopList;
-using Teleperformance.Final.Project.Application.Feautures.ShopList.Command;
+using Teleperformance.Final.Project.Application.Feautures.ShopList.Command.Create;
 using Teleperformance.Final.Project.Application.Responses;
 using Teleperformance.Final.Project.WebAPI.Controllers.Base;
 
@@ -12,10 +12,17 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
     [ApiVersion("1.0")]
 
     public class ShopListController : BaseController
-    { 
+    {
+        #region SUMMARY
+        /// <summary>
+        /// Alışveriş Listesi İle ilgili işlemlerin yapıldığı controller
+        /// </summary>
+
+        #endregion
+
         #region FIELDS
         private readonly IMediator _mediator;
-         
+
         #endregion
 
         #region CTOR

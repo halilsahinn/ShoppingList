@@ -7,7 +7,7 @@ using Teleperformance.Final.Project.Application.Responses;
 using Teleperformance.Final.Project.Application.ValidationRules.Product;
 using Teleperformance.Final.Project.Domain.Product;
 
-namespace Teleperformance.Final.Project.Application.Feautures.Product.Commands
+namespace Teleperformance.Final.Project.Application.Feautures.Product.Commands.Create
 {
 
     #region COMMAND
@@ -18,12 +18,12 @@ namespace Teleperformance.Final.Project.Application.Feautures.Product.Commands
     #endregion
 
     #region HANDLER
-    public class CreateProductCommandHandler :BaseHandler, IRequestHandler<CreateProductCommand, BaseCommandResponse>
-    { 
+    public class CreateProductCommandHandler : BaseHandler, IRequestHandler<CreateProductCommand, BaseCommandResponse>
+    {
         #region CTOR
-        public CreateProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper):base(unitOfWork, mapper)
+        public CreateProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
         {
-          
+
         }
         #endregion
 

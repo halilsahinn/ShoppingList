@@ -10,10 +10,10 @@ namespace Teleperformance.Final.Project.Application.ValidationRules.Product
         public AddProductDtoValidator()
         {
             RuleFor(x => x.ProductName)
-                .NotEmpty().WithMessage(ProductValidationResource.ProductNameNotNull)
-                .Length(3, 100).WithMessage(String.Format(ProductValidationResource.ProductNameLengthMustBe, 3, 100));
+                .NotEmpty().WithMessage(ProductValidationMessage.ProductNameNotNull)
+                .Length(3, 100).WithMessage(String.Format(ProductValidationMessage.ProductNameLengthMustBe, 3, 100));
 
-            RuleFor(x => x.Unit).NotEmpty().WithMessage(ProductValidationResource.ProductUnitNotNull);
+            RuleFor(x => x.Unit).NotEmpty().WithMessage(ProductValidationMessage.ProductUnitNotNull);
         }
     }
 }

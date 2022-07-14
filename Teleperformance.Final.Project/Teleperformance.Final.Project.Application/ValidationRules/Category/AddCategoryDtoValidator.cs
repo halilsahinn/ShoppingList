@@ -10,8 +10,8 @@ namespace Teleperformance.Final.Project.Application.ValidationRules.Category
         public AddCategoryDtoValidator()
         {
             RuleFor(x => x.CategoryName)
-              .NotEmpty().WithMessage(CategoryValidationResource.CategoryNameNotNull)
-              .Length(3, 100).WithMessage(String.Format(CategoryValidationResource.ProductNameLengthMustBe, 3, 100));
+              .NotEmpty().WithMessage(CategoryValidationMessage.CategoryNameNotNull)
+              .Length(3, 100).WithMessage(String.Format(CategoryValidationMessage.ProductNameLengthMustBe, 3, 100));
 
 
         }

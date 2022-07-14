@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Feautures\Category\Commands\Delete\" />
     <Folder Include="Feautures\Category\Commands\Update\" />
     <Folder Include="Feautures\Category\Queries\" />
     <Folder Include="Feautures\ShopList\Queries\" />
@@ -32,53 +31,71 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Messages\TR\Info\CategoryInfoResource.Designer.cs">
+    <Compile Update="Messages\TR\Info\CategoryInfoMessage.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>CategoryInfoResource.resx</DependentUpon>
+      <DependentUpon>CategoryInfoMessage.resx</DependentUpon>
     </Compile>
-    <Compile Update="Messages\TR\Info\ProductInfoResource.Designer.cs">
+    <Compile Update="Messages\TR\Info\ProductInfoMessage.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>ProductInfoResource.resx</DependentUpon>
+      <DependentUpon>ProductInfoMessage.resx</DependentUpon>
     </Compile>
-    <Compile Update="Messages\TR\Validation\CategoryValidationResource.Designer.cs">
+    <Compile Update="Messages\TR\Info\ShopListInfoMessage.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>CategoryValidationResource.resx</DependentUpon>
+      <DependentUpon>ShopListInfoMessage.resx</DependentUpon>
     </Compile>
-    <Compile Update="Messages\TR\Validation\ProductValidationResource.Designer.cs">
+    <Compile Update="Messages\TR\Validation\AccountValidationMessage.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>ProductValidationResource.resx</DependentUpon>
+      <DependentUpon>AccountValidationMessage.resx</DependentUpon>
     </Compile>
-    <Compile Update="Messages\TR\Validation\ShopListValidationResource.Designer.cs">
+    <Compile Update="Messages\TR\Validation\CategoryValidationMessage.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>ShopListValidationResource.resx</DependentUpon>
+      <DependentUpon>CategoryValidationMessage.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Messages\TR\Validation\ProductValidationMessage.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ProductValidationMessage.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Messages\TR\Validation\ShopListValidationMessage.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ShopListValidationMessage.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Messages\TR\Info\CategoryInfoResource.resx">
+    <EmbeddedResource Update="Messages\TR\Info\CategoryInfoMessage.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CategoryInfoResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>CategoryInfoMessage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Messages\TR\Info\ProductInfoResource.resx">
+    <EmbeddedResource Update="Messages\TR\Info\ProductInfoMessage.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ProductInfoResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>ProductInfoMessage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Messages\TR\Validation\CategoryValidationResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CategoryValidationResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Messages\TR\Validation\ProductValidationResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ProductValidationResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Messages\TR\Validation\ShopListValidationResource.resx">
+    <EmbeddedResource Update="Messages\TR\Info\ShopListInfoMessage.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ShopListValidationResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>ShopListInfoMessage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\TR\Validation\AccountValidationMessage.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccountValidationMessage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\TR\Validation\CategoryValidationMessage.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CategoryValidationMessage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\TR\Validation\ProductValidationMessage.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProductValidationMessage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\TR\Validation\ShopListValidationMessage.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ShopListValidationMessage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

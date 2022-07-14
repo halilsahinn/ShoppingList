@@ -22,24 +22,24 @@ namespace Teleperformance.Final.Project.Application.Messages.TR.Info {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class CategoryInfoResource {
+    internal class ShopListInfoMessage {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CategoryInfoResource() {
+        internal ShopListInfoMessage() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Teleperformance.Final.Project.Application.Messages.TR.Info.CategoryInfoResource", typeof(CategoryInfoResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Teleperformance.Final.Project.Application.Messages.TR.Info.ShopListInfoMessage", typeof(ShopListInfoMessage).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,39 +51,12 @@ namespace Teleperformance.Final.Project.Application.Messages.TR.Info {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Kategori Başarılı Bir Şekilde Eklendi.
-        /// </summary>
-        public static string AddedSuccess {
-            get {
-                return ResourceManager.GetString("AddedSuccess", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Kategori Başarılı Bir Şekilde Silindi.
-        /// </summary>
-        public static string DeletedSuccess {
-            get {
-                return ResourceManager.GetString("DeletedSuccess", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Kategori Başarılı Bir Şekilde Güncellendi.
-        /// </summary>
-        public static string UpdatedSuccess {
-            get {
-                return ResourceManager.GetString("UpdatedSuccess", resourceCulture);
             }
         }
     }

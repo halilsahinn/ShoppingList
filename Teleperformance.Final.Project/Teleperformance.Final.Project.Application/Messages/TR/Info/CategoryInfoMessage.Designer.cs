@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Teleperformance.Final.Project.Application.Messages.TR.Validation {
+namespace Teleperformance.Final.Project.Application.Messages.TR.Info {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Teleperformance.Final.Project.Application.Messages.TR.Validation {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ProductValidationResource {
+    public class CategoryInfoMessage {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ProductValidationResource() {
+        internal CategoryInfoMessage() {
         }
         
         /// <summary>
@@ -39,8 +39,7 @@ namespace Teleperformance.Final.Project.Application.Messages.TR.Validation {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Teleperformance.Final.Project.Application.Messages.TR.Validation.ProductValidatio" +
-                            "nResource", typeof(ProductValidationResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Teleperformance.Final.Project.Application.Messages.TR.Info.CategoryInfoMessage", typeof(CategoryInfoMessage).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -62,29 +61,29 @@ namespace Teleperformance.Final.Project.Application.Messages.TR.Validation {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ürün İsmi {0} İle {1} Karakter Arasında Olmalıdır..
+        ///   Looks up a localized string similar to Kategori Başarılı Bir Şekilde Eklendi.
         /// </summary>
-        public static string ProductNameLengthMustBe {
+        public static string AddedSuccess {
             get {
-                return ResourceManager.GetString("ProductNameLengthMustBe", resourceCulture);
+                return ResourceManager.GetString("AddedSuccess", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ürün İsmi Boş Olamaz.
+        ///   Looks up a localized string similar to Kategori Başarılı Bir Şekilde Silindi.
         /// </summary>
-        public static string ProductNameNotNull {
+        public static string DeletedSuccess {
             get {
-                return ResourceManager.GetString("ProductNameNotNull", resourceCulture);
+                return ResourceManager.GetString("DeletedSuccess", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ürünün Birimi Boş Olamaz.
+        ///   Looks up a localized string similar to Kategori Başarılı Bir Şekilde Güncellendi.
         /// </summary>
-        public static string ProductUnitNotNull {
+        public static string UpdatedSuccess {
             get {
-                return ResourceManager.GetString("ProductUnitNotNull", resourceCulture);
+                return ResourceManager.GetString("UpdatedSuccess", resourceCulture);
             }
         }
     }

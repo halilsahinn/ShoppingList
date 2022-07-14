@@ -6,6 +6,8 @@ using System.Security.Claims;
 using System.Text;
 using Teleperformance.Final.Project.Application.Constants;
 using Teleperformance.Final.Project.Application.Contracts.Identity;
+using Teleperformance.Final.Project.Application.Exceptions;
+using Teleperformance.Final.Project.Application.Messages.TR.Validation;
 using Teleperformance.Final.Project.Application.Models.Identity;
 using Teleperformance.Final.Project.Identity.Models;
 
@@ -38,7 +40,7 @@ namespace Teleperformance.Final.Project.Identity.Services
 
             if (user == null)
             {
-                throw new Exception($"User with {request.Email} not found.");
+                throw new DatabaseValidationException(AccountValidationMessage.UserNotExist);
             }
 
             var result = await _signInManager.PasswordSignInAsync(user.UserName, request.Password, false, lockoutOnFailure: false);
@@ -67,7 +69,7 @@ namespace Teleperformance.Final.Project.Identity.Services
 
             if (existingUser != null)
             {
-                throw new Exception($"'{request.UserName}' kullanıcısı kayıtlı.");
+                throw new DatabaseValidationException(String.Format(AccountValidationMessage.UserAlreadyExist, request.UserName));
             }
 
             var user = new ApplicationUser
@@ -97,7 +99,8 @@ namespace Teleperformance.Final.Project.Identity.Services
             }
             else
             {
-                throw new Exception($"{request.Email} zaten kayıtlı.");
+                throw new DatabaseValidationException(String.Format(AccountValidationMessage.UserEmailAlreadyExist, request.Email));
+                
             }
         }
 

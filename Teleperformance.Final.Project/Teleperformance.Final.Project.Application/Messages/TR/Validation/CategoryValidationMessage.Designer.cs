@@ -22,14 +22,14 @@ namespace Teleperformance.Final.Project.Application.Messages.TR.Validation {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class CategoryValidationResource {
+    public class CategoryValidationMessage {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CategoryValidationResource() {
+        internal CategoryValidationMessage() {
         }
         
         /// <summary>
@@ -40,7 +40,7 @@ namespace Teleperformance.Final.Project.Application.Messages.TR.Validation {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Teleperformance.Final.Project.Application.Messages.TR.Validation.CategoryValidati" +
-                            "onResource", typeof(CategoryValidationResource).Assembly);
+                            "onMessage", typeof(CategoryValidationMessage).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
