@@ -24,11 +24,11 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
             _mediator = mediator;
         }
         #endregion
-         
+
         #region METHODS
         #region CREATE
-        // POST api/<LeaveAllocationsController>
-        [HttpPost]
+        // POST api/<ShopListController>
+        [HttpPost("CreateShoppingList")]
         public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] AddShopListDto shopListDto)
         {
             var command = new CreateShopListCommand { shopListDto = shopListDto };

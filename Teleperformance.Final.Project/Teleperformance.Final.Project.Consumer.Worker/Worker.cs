@@ -12,8 +12,7 @@ namespace Teleperformance.Final.Project.Consumer.Worker
     public class Worker : BackgroundService
     {
         #region FIELDS
-
-
+         
         private readonly IMongoDbConnector _mongoDbConnector;
         private readonly IRabbitMqConnector _rabbitMqConnector;
         private EventLog _eventLogger;
@@ -21,8 +20,7 @@ namespace Teleperformance.Final.Project.Consumer.Worker
         #endregion
 
         #region CTOR
-
-
+         
         public Worker(IMongoDbConnector mongoDbConnector, IRabbitMqConnector rabbitMqConnector)
         {
 
@@ -49,10 +47,7 @@ namespace Teleperformance.Final.Project.Consumer.Worker
 
             try
             {
-               
-
-
-
+                
                 _eventLogger.WriteEntry($"Worker Çalýþmaya Baþladý: {DateTimeOffset.Now}", EventLogEntryType.Information);
 
                 while (!stoppingToken.IsCancellationRequested)
