@@ -11,19 +11,18 @@
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.1.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="6.0.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.16.1" />
     <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Feautures\Category\Commands\Update\" />
-    <Folder Include="Feautures\Category\Queries\" />
-    <Folder Include="Feautures\ShopList\Queries\" />
+    <Folder Include="Feautures\ShopListItems\Queries\" />
     <Folder Include="Enums\" />
     <Folder Include="Extensions\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Swagger\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,6 +45,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ShopListInfoMessage.resx</DependentUpon>
     </Compile>
+    <Compile Update="Messages\TR\Info\ShopListItemsInfoMessage.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ShopListItemsInfoMessage.resx</DependentUpon>
+    </Compile>
     <Compile Update="Messages\TR\Validation\AccountValidationMessage.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -60,6 +64,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ProductValidationMessage.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Messages\TR\Validation\ShopListItemsValidationMessage.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ShopListItemsValidationMessage.resx</DependentUpon>
     </Compile>
     <Compile Update="Messages\TR\Validation\ShopListValidationMessage.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -78,8 +87,12 @@
       <LastGenOutput>ProductInfoMessage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Messages\TR\Info\ShopListInfoMessage.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ShopListInfoMessage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\TR\Info\ShopListItemsInfoMessage.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ShopListItemsInfoMessage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Messages\TR\Validation\AccountValidationMessage.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -92,6 +105,10 @@
     <EmbeddedResource Update="Messages\TR\Validation\ProductValidationMessage.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProductValidationMessage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\TR\Validation\ShopListItemsValidationMessage.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ShopListItemsValidationMessage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Messages\TR\Validation\ShopListValidationMessage.resx">
       <Generator>ResXFileCodeGenerator</Generator>

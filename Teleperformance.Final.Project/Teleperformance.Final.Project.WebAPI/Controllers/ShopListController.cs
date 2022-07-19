@@ -2,14 +2,19 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Teleperformance.Final.Project.Application.DTOs.ShopList;
+using Teleperformance.Final.Project.Application.Feautures.ShopList.Command.Complete;
 using Teleperformance.Final.Project.Application.Feautures.ShopList.Command.Create;
 using Teleperformance.Final.Project.Application.Responses;
 using Teleperformance.Final.Project.WebAPI.Controllers.Base;
 
 namespace Teleperformance.Final.Project.WebAPI.Controllers
 {
-    [Authorize]
+    #region ATTRIBUTES
+
+    [Authorize(Roles = "User,Administrator")]
     [ApiVersion("1.0")]
+    #endregion
+
 
     public class ShopListController : BaseController
     {
@@ -33,9 +38,10 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
         #endregion
 
         #region METHODS
+
         #region CREATE
         // POST api/<ShopListController>
-        [HttpPost("CreateShoppingList")]
+        [HttpPost]
         public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] AddShopListDto shopListDto)
         {
             var command = new CreateShopListCommand { shopListDto = shopListDto };
@@ -45,6 +51,22 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
 
         #endregion
 
+        #region UPDATE
+        // PUT api/<ShopListController>/1
+        [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+
+        public async Task<ActionResult> Put([FromBody] CompleteShopListDto completeShopListDto)
+        {
+            var command = new CompleteShopListCommand { completeShopListDto = completeShopListDto };
+            await _mediator.Send(command);
+            return Ok();
+        }
+
+
+        #endregion
 
         #endregion
     }

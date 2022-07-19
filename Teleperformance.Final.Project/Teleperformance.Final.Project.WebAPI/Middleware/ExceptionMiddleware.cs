@@ -42,15 +42,16 @@ namespace Teleperformance.Final.Project.WebAPI.Middleware
                     break;
                 case ValidationException validationException:
                     statusCode = HttpStatusCode.BadRequest;
-                  
-                    strResultBuilder.Append(JsonConvert.SerializeObject(validationException.Errors));
-                    strResultBuilder.Append(JsonConvert.SerializeObject(validationException.InnerException));
-                    strResultBuilder.Append(JsonConvert.SerializeObject(validationException.Message));
-                    
+
                     break;
                 case NotFoundException notFoundException:
                     statusCode = HttpStatusCode.NotFound;
                     break;
+
+                //case DatabaseValidationException databaseValidationException:
+                //    statusCode = HttpStatusCode.BadRequest;                                                     
+                //    break;
+
 
                 case Exception ex:
                     strResultBuilder.Append(JsonConvert.SerializeObject(ex.Message));
@@ -58,7 +59,7 @@ namespace Teleperformance.Final.Project.WebAPI.Middleware
                     strResultBuilder.Append(JsonConvert.SerializeObject(ex.Data));
                     break;
                 default:
-                  
+
                     break;
             }
 

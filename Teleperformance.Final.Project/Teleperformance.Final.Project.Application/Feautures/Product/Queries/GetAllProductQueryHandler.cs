@@ -41,7 +41,5 @@ namespace Teleperformance.Final.Project.Application.Feautures.Product.Queries
         }
     }
     #endregion
-
-
-
+ 
 }

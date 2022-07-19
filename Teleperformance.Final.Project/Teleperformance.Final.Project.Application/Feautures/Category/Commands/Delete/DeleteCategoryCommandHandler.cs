@@ -26,7 +26,7 @@ namespace Teleperformance.Final.Project.Application.Feautures.Category.Commands.
         #region METHODS
         public async Task<Unit> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
         {
-            var categoryRequest = await _unitOfWork.CategoryRepository.Get(request.Id);
+            var categoryRequest = await _unitOfWork.CategoryRepository.GetById(request.Id);
             if (categoryRequest == null)
                 throw new NotFoundException(nameof(categoryRequest), request.Id);
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using Teleperformance.Final.Project.Application.Contracts.Repositories;
 using Teleperformance.Final.Project.Persistance.Contexs;
 
@@ -7,7 +8,7 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework
     public class GenericRepositoryBase<T> : IGenericRepository<T> where T : class
     {
         private readonly ShoppingListDbContext _dbContext;
-
+        protected DbSet<T> _dbSet => _dbContext.Set<T>();
         public GenericRepositoryBase(ShoppingListDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -15,7 +16,7 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework
 
         public async Task<T> Add(T entity)
         {
-            await _dbContext.AddAsync(entity);
+            await _dbSet.AddAsync(entity);
             return entity;
         }
 
@@ -26,7 +27,7 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework
 
         public async Task<bool> Exists(int id)
         {
-            var entity = await Get(id);
+            var entity = await GetById(id);
             return entity != null;
         }
 
@@ -35,14 +36,31 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Entityframework
             return await _dbContext.Set<T>().ToListAsync();
         }
 
-        public async Task<T> Get(int id)
+        public IQueryable<T> GetAllByIQueryable()
         {
-            return await _dbContext.Set<T>().FindAsync(id);
+          return  _dbSet.AsQueryable();
+        }
+
+        public IEnumerable<T> GetBy(Expression<Func<T, bool>> expression)
+        {
+            return _dbSet.Where(expression);
+        }
+
+        public async Task<T> GetById(int id)
+        {
+            return await _dbSet.FindAsync(id);
         }
 
         public async Task Update(T entity)
         {
-            _dbContext.Entry(entity).State = EntityState.Modified;
+            _dbSet.Update(entity);
+            // _dbContext.Entry(entity).State = EntityState.Modified;
         }
-    }
+
+        public T GetByPredicate(Expression<Func<T, bool>> expression)
+        {
+            return _dbSet.SingleOrDefault(expression);
+        }
+
+     }
 }

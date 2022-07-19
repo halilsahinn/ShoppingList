@@ -9,6 +9,7 @@ namespace Teleperformance.Final.Project.Application.Contracts.UnitOfWork
 
         IShopListRepository ShopListRepository { get; }
 
+        IShopListItemsRepository ShopListItemsRepository { get; }
         Task Save();
 
     }

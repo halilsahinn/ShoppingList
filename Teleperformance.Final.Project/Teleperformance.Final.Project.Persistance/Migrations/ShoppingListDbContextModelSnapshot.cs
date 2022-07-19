@@ -68,7 +68,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 1,
                             CategoryName = "Alışveriş Listesi",
-                            CreatedDate = new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6714),
+                            CreatedDate = new DateTime(2022, 7, 17, 10, 50, 48, 532, DateTimeKind.Utc).AddTicks(3138),
                             Description = "",
                             IsActive = true
                         },
@@ -76,7 +76,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 2,
                             CategoryName = "Film Listesi",
-                            CreatedDate = new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6716),
+                            CreatedDate = new DateTime(2022, 7, 17, 10, 50, 48, 532, DateTimeKind.Utc).AddTicks(3140),
                             Description = "",
                             IsActive = true
                         },
@@ -84,7 +84,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 3,
                             CategoryName = "Yapılacaklar Listesi",
-                            CreatedDate = new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6717),
+                            CreatedDate = new DateTime(2022, 7, 17, 10, 50, 48, 532, DateTimeKind.Utc).AddTicks(3141),
                             Description = "",
                             IsActive = true
                         });
@@ -151,7 +151,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6952),
+                            CreatedDate = new DateTime(2022, 7, 17, 10, 50, 48, 532, DateTimeKind.Utc).AddTicks(3307),
                             Description = "",
                             IsActive = true,
                             ProductName = "Süt",
@@ -161,7 +161,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6955),
+                            CreatedDate = new DateTime(2022, 7, 17, 10, 50, 48, 532, DateTimeKind.Utc).AddTicks(3310),
                             Description = "",
                             IsActive = true,
                             ProductName = "Çikolata",
@@ -171,7 +171,7 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6956),
+                            CreatedDate = new DateTime(2022, 7, 17, 10, 50, 48, 532, DateTimeKind.Utc).AddTicks(3311),
                             Description = "",
                             IsActive = true,
                             ProductName = "Gazoz",
@@ -183,20 +183,23 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CategoryId")
+                        .HasColumnOrder(3);
 
                     b.Property<DateTime?>("CompletedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2")
-                        .HasColumnName("CreateDate")
-                        .HasColumnOrder(4);
+                        .HasColumnName("CreatedDate")
+                        .HasColumnOrder(6);
 
                     b.Property<string>("Description")
                         .HasMaxLength(500)
@@ -209,30 +212,78 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         .HasColumnName("IsActive")
                         .HasColumnOrder(9);
 
-                    b.Property<bool>("IsComplete")
-                        .HasColumnType("bit");
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("bit")
+                        .HasColumnName("IsCompleted")
+                        .HasColumnOrder(5);
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)")
                         .HasColumnName("Title")
+                        .HasColumnOrder(2);
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpatedDate")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("UserId")
+                        .HasColumnOrder(4);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Main", "ShopList");
+                });
+
+            modelBuilder.Entity("Teleperformance.Final.Project.Domain.ShopListItems.ShopListItemsEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasColumnOrder(1);
 
-                    b.Property<byte>("Unit")
-                        .HasColumnType("tinyint");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreateDate")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("Description")
+                        .HasColumnOrder(6);
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit")
+                        .HasColumnName("IsActive")
+                        .HasColumnOrder(7);
+
+                    b.Property<bool>("IsTaken")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int")
+                        .HasColumnOrder(3);
+
+                    b.Property<int>("ShopListId")
+                        .HasColumnType("int")
+                        .HasColumnOrder(2);
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("UpatedDate")
                         .HasColumnOrder(5);
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("Items", "ShopList");
                 });

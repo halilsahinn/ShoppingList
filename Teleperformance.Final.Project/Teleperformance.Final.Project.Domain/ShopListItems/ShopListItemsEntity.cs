@@ -9,8 +9,6 @@ namespace Teleperformance.Final.Project.Domain.ShopListItems
 
         public int ShopListId { get; set; }
 
-        public byte UnitId { get; set; }
-
         public bool IsTaken { get; set; }
 
     }

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Teleperformance.Final.Project.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="F:Teleperformance.Final.Project.WebAPI.Controllers.AccountController._authenticationService">
+            <summary>
+            Sisteme giriş kontrollerinin yapıldığı controller.
+            </summary>
+        </member>
+        <member name="M:Teleperformance.Final.Project.WebAPI.Controllers.AccountController.Login(Teleperformance.Final.Project.Application.Models.Identity.AuthRequest)">
+            <summary>
+            Varsayılan Admin Kullanıcı Adı: admin@localhost.com Şifre: P@ssword1
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Teleperformance.Final.Project.WebAPI.Controllers.AdminController._mediator">
+            <summary>
+            Bu Controllerda Tamamlanan Listeler Görüntülenebilir. Bu görüntüleme işlemini ancak admin yetkisine
+            sahip olan kullanıcı yapabilir
+            </summary>
+        </member>
+        <member name="F:Teleperformance.Final.Project.WebAPI.Controllers.ShopListController._mediator">
+            <summary>
+            Alışveriş Listesi İle ilgili işlemlerin yapıldığı controller
+            </summary>
+        </member>
+        <member name="F:Teleperformance.Final.Project.WebAPI.Controllers.ShopListItemsController._mediator">
+            <summary>
+            Alışveriş Listesine Ürün Ekler.
+            </summary>
+        </member>
+    </members>
+</doc>

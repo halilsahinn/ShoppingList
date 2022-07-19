@@ -4,7 +4,7 @@ using Teleperformance.Final.Project.MongoDb.Configuration;
 
 namespace Teleperformance.Final.Project.MongoDb.Connector
 {
-    public class MongoDbConnector: IMongoDbConnector
+    public class MongoDbConnector: IMongoDbService
     {
         #region SUMMARY
         /// <summary>

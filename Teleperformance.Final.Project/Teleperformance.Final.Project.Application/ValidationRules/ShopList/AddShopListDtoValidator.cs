@@ -7,8 +7,8 @@ namespace Teleperformance.Final.Project.Application.ValidationRules.ShopList
     {
         public AddShopListDtoValidator()
         {
-            RuleFor(x=>x.CategoryId).NotEmpty().WithMessage("");
-           
+            RuleFor(x=>x.CategoryId).NotNull().WithMessage("Kategori Id Boş Geçilemez");
+            RuleFor(x => x.UserId).NotEmpty().WithMessage("User Id Boş Geçilemez");
         }
 
     }

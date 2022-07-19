@@ -12,7 +12,7 @@ using Teleperformance.Final.Project.Identity;
 namespace Teleperformance.Final.Project.Identity.Migrations
 {
     [DbContext(typeof(ShoppingListIdentityDbContext))]
-    [Migration("20220713161957_Initial")]
+    [Migration("20220717103209_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,14 +54,14 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                         new
                         {
                             Id = "cac43a6e-f7bb-4448-baaf-1add431ccbbf",
-                            ConcurrencyStamp = "8f3b73c1-01ff-421d-9679-5742faefd3c4",
+                            ConcurrencyStamp = "107c1c48-c93b-4298-9eae-916984a480aa",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "cbc43a8e-f7bb-4445-baaf-1add431ffbbf",
-                            ConcurrencyStamp = "ebf37bab-7719-4e22-85e0-5bf44d6ba8ab",
+                            ConcurrencyStamp = "28ac7b72-e67a-439a-9b96-a5f171b5aa9c",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -262,7 +262,7 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f6fe3c74-1ac2-414c-a94c-62f446f13fe4",
+                            ConcurrencyStamp = "b2e5cad2-cf60-424c-8362-7d3074a14140",
                             Email = "admin@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -270,9 +270,9 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBqsgqzJjUVo7yM7PdY2KfdcXPOjOatpiH0f4s/u1Eck8d9E7Qnx0GhyYBTbYmGvQw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN47P5AE0/oeC3wwmgdKgHSVSl7xqPhxhG5/Si9LhDkYHQTfaU9Ai8brArVxTZxY4w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0c1db656-3a64-4a56-9caa-e6983d8357bd",
+                            SecurityStamp = "1905553e-e32b-445d-a164-780fa0dfa6eb",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -280,7 +280,7 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                         {
                             Id = "9e224968-33e4-4652-b7b7-8574d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "58ad2daa-54d0-4ab3-8a86-8f283316d7bb",
+                            ConcurrencyStamp = "20b4c05f-03bb-4c77-abc4-f91be78cb36a",
                             Email = "user@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -288,9 +288,9 @@ namespace Teleperformance.Final.Project.Identity.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.COM",
                             NormalizedUserName = "USER@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKXbS0xIUNEYiDWY2WzBepO+Y+d9kXxM1UiB8f2mV5gCnsN3dSRxGp+u2Ld5TqsU2A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOTZ2jahWoAKgupqEOp/KB7O9JHzAENcpMLhSn72aWI6r5mueOTUP8O4Zco0Lo8I7g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7d85df35-b407-4417-a695-5b1b16524b3a",
+                            SecurityStamp = "e3abecb4-a4fb-4567-9602-863edfe3121f",
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.com"
                         });

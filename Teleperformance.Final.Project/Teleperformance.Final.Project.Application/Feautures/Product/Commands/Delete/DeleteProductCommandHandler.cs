@@ -25,7 +25,7 @@ namespace Teleperformance.Final.Project.Application.Feautures.Product.Commands.D
         #region METHODS
         public async Task<Unit> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
-            var productRequest = await _unitOfWork.ProductRepository.Get(request.Id);
+            var productRequest = await _unitOfWork.ProductRepository.GetById(request.Id);
             if (productRequest == null)
                 throw new NotFoundException(nameof(productRequest), request.Id);
 

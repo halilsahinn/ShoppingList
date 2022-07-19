@@ -11,7 +11,7 @@ using Teleperformance.Final.Project.WebAPI.Controllers.Base;
 namespace Teleperformance.Final.Project.WebAPI.Controllers
 {
     #region ATTRIBUTES
-    [Authorize]
+    [Authorize(Roles = "User")]
     [ApiVersion("1.0")]
     #endregion
 
@@ -34,26 +34,9 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
 
         #endregion
 
-        #region METHODS
 
-        #region GET
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ProductDto>> Get(int id)
-        {
-
-            var product = await _mediator.Send(new GetByIdQuery { Id = id });
-            return Ok(product);
-        }
-
-        [HttpGet]
-
-        public async Task<ActionResult<List<ProductDto>>> GetAll()
-        {
-
-            var product = await _mediator.Send(new GetAllProductQuery() { });
-            return Ok(product);
-        }
-        #endregion
+        #region METHODS 
+         
 
         #region CREATE
         [HttpPost]
@@ -65,6 +48,24 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
         }
         #endregion
 
+        #region READ
+        // GET api/<ProductController>/1
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ProductDto>> Get(int id)
+        {
+            var product = await _mediator.Send(new GetByIdProductQuery { Id = id });
+            return Ok(product);
+        }
+
+        // GET: api/<ProductController>
+        [HttpGet]
+        public async Task<ActionResult<List<ProductDto>>> Get()
+        {
+            var product = await _mediator.Send(new GetAllProductQuery() { });
+            return Ok(product);
+        }
+        #endregion
+
         #region UPDATE
 
         #endregion
@@ -72,6 +73,8 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
         #region DELETE
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult> Delete(int id)
         {
             var command = new DeleteProductCommand { Id = id };

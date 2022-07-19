@@ -35,24 +35,43 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                 schema: "ShopList",
                 columns: table => new
                 {
-                    Title = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ShopListId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    Unit = table.Column<byte>(type: "tinyint", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    IsComplete = table.Column<bool>(type: "bit", nullable: false),
-                    CompletedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    IsTaken = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Items", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Main",
+                schema: "ShopList",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsCompleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    CompletedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Main", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Items_Category_CategoryId",
+                        name: "FK_Main_Category_CategoryId",
                         column: x => x.CategoryId,
                         principalSchema: "ShopList",
                         principalTable: "Category",
@@ -87,10 +106,10 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Product_Items_ShopListEntityId",
+                        name: "FK_Product_Main_ShopListEntityId",
                         column: x => x.ShopListEntityId,
                         principalSchema: "ShopList",
-                        principalTable: "Items",
+                        principalTable: "Main",
                         principalColumn: "Id");
                 });
 
@@ -98,42 +117,42 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
                 schema: "ShopList",
                 table: "Category",
                 columns: new[] { "Id", "CategoryName", "CreateDate", "Description", "IsActive", "UpatedDate" },
-                values: new object[] { 1, "Alışveriş Listesi", new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6714), "", true, null });
+                values: new object[] { 1, "Alışveriş Listesi", new DateTime(2022, 7, 17, 10, 30, 56, 42, DateTimeKind.Utc).AddTicks(1421), "", true, null });
 
             migrationBuilder.InsertData(
                 schema: "ShopList",
                 table: "Category",
                 columns: new[] { "Id", "CategoryName", "CreateDate", "Description", "IsActive", "UpatedDate" },
-                values: new object[] { 2, "Film Listesi", new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6716), "", true, null });
+                values: new object[] { 2, "Film Listesi", new DateTime(2022, 7, 17, 10, 30, 56, 42, DateTimeKind.Utc).AddTicks(1425), "", true, null });
 
             migrationBuilder.InsertData(
                 schema: "ShopList",
                 table: "Category",
                 columns: new[] { "Id", "CategoryName", "CreateDate", "Description", "IsActive", "UpatedDate" },
-                values: new object[] { 3, "Yapılacaklar Listesi", new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6717), "", true, null });
+                values: new object[] { 3, "Yapılacaklar Listesi", new DateTime(2022, 7, 17, 10, 30, 56, 42, DateTimeKind.Utc).AddTicks(1427), "", true, null });
 
             migrationBuilder.InsertData(
                 schema: "ShopList",
                 table: "Product",
                 columns: new[] { "Id", "CategoryId", "CreateDate", "Description", "IsActive", "ProductName", "ShopListEntityId", "Unit", "UpatedDate" },
-                values: new object[] { 1, 1, new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6952), "", true, "Süt", null, (byte)1, null });
+                values: new object[] { 1, 1, new DateTime(2022, 7, 17, 10, 30, 56, 42, DateTimeKind.Utc).AddTicks(1626), "", true, "Süt", null, (byte)1, null });
 
             migrationBuilder.InsertData(
                 schema: "ShopList",
                 table: "Product",
                 columns: new[] { "Id", "CategoryId", "CreateDate", "Description", "IsActive", "ProductName", "ShopListEntityId", "Unit", "UpatedDate" },
-                values: new object[] { 2, 1, new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6955), "", true, "Çikolata", null, (byte)2, null });
+                values: new object[] { 2, 1, new DateTime(2022, 7, 17, 10, 30, 56, 42, DateTimeKind.Utc).AddTicks(1629), "", true, "Çikolata", null, (byte)2, null });
 
             migrationBuilder.InsertData(
                 schema: "ShopList",
                 table: "Product",
                 columns: new[] { "Id", "CategoryId", "CreateDate", "Description", "IsActive", "ProductName", "ShopListEntityId", "Unit", "UpatedDate" },
-                values: new object[] { 3, 1, new DateTime(2022, 7, 13, 16, 16, 25, 339, DateTimeKind.Utc).AddTicks(6956), "", true, "Gazoz", null, (byte)3, null });
+                values: new object[] { 3, 1, new DateTime(2022, 7, 17, 10, 30, 56, 42, DateTimeKind.Utc).AddTicks(1630), "", true, "Gazoz", null, (byte)3, null });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Items_CategoryId",
+                name: "IX_Main_CategoryId",
                 schema: "ShopList",
-                table: "Items",
+                table: "Main",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
@@ -152,11 +171,15 @@ namespace Teleperformance.Final.Project.Persistance.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Items",
+                schema: "ShopList");
+
+            migrationBuilder.DropTable(
                 name: "Product",
                 schema: "ShopList");
 
             migrationBuilder.DropTable(
-                name: "Items",
+                name: "Main",
                 schema: "ShopList");
 
             migrationBuilder.DropTable(

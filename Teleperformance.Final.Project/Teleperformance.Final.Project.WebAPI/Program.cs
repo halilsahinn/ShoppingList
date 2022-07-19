@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 using Teleperformance.Final.Project.Application;
+using Teleperformance.Final.Project.Application.Contracts.RabbitMq;
 using Teleperformance.Final.Project.Caching;
 using Teleperformance.Final.Project.Identity;
+using Teleperformance.Final.Project.MessageBroker.RabbitMq;
 using Teleperformance.Final.Project.Persistance;
 using Teleperformance.Final.Project.WebAPI.Middleware;
 
@@ -17,7 +19,9 @@ builder.Services.AddControllers(opt =>
 
 
 builder.Services.AddEndpointsApiExplorer();
-
+builder.Services.AddControllers()
+        .AddNewtonsoftJson();
+builder.Services.AddTransient<IRabbitMqService, RabbitMqManager>();
 
 #region API VERSIONING
 builder.Services.AddApiVersioning(_ =>

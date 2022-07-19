@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
 using Teleperformance.Final.Project.Application.Contracts.MongoDb;
-using Teleperformance.Final.Project.Application.RabbitMq;
+using Teleperformance.Final.Project.Application.Contracts.RabbitMq;
 using Teleperformance.Final.Project.MongoDb.Model;
 
 namespace Teleperformance.Final.Project.Consumer.Worker
@@ -13,18 +13,18 @@ namespace Teleperformance.Final.Project.Consumer.Worker
     {
         #region FIELDS
          
-        private readonly IMongoDbConnector _mongoDbConnector;
-        private readonly IRabbitMqConnector _rabbitMqConnector;
+        private readonly IMongoDbService _mongoDbConnector;
+        private readonly IRabbitMqService _rabbitMqService;
         private EventLog _eventLogger;
 
         #endregion
 
         #region CTOR
          
-        public Worker(IMongoDbConnector mongoDbConnector, IRabbitMqConnector rabbitMqConnector)
+        public Worker(IMongoDbService mongoDbConnector, IRabbitMqService rabbitMqService)
         {
 
-            _rabbitMqConnector = rabbitMqConnector;
+            _rabbitMqService = rabbitMqService;
             _mongoDbConnector = mongoDbConnector;
             
 
@@ -41,10 +41,10 @@ namespace Teleperformance.Final.Project.Consumer.Worker
         #region METHODS
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+           
 
             var collection = _mongoDbConnector.Connect<ShoppingListBson>();
             
-
             try
             {
                 
@@ -53,7 +53,7 @@ namespace Teleperformance.Final.Project.Consumer.Worker
                 while (!stoppingToken.IsCancellationRequested)
                 {
 
-                    var connection = _rabbitMqConnector.Connect();
+                    var connection = _rabbitMqService.Connect();
                     var channel = connection.CreateModel();
                     channel.QueueDeclare("direct.queuName", false, false, false);
                     var consumer = new EventingBasicConsumer(channel);
@@ -80,8 +80,7 @@ namespace Teleperformance.Final.Project.Consumer.Worker
 
                 _eventLogger.WriteEntry($"Bir Hata meydana Geldi: {ex.Message}", EventLogEntryType.Error);
             }
-
-
+ 
         }
 
         #endregion

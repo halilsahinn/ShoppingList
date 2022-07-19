@@ -14,12 +14,17 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Configurations.
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).UseIdentityColumn();
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
+            builder.Property(p => p.Id).HasColumnOrder(1);
 
-            builder.Property(p => p.Title).HasColumnName("Title").HasColumnOrder(1).HasMaxLength(500);
+            builder.Property(p => p.Title).HasColumnName("Title").HasColumnOrder(2).HasMaxLength(500);
+            builder.Property(p => p.CategoryId).HasColumnName("CategoryId").HasColumnOrder(3).IsRequired(true);
+            
+            builder.Property(p => p.UserId).HasColumnName("UserId").HasColumnOrder(4).IsRequired(true);
 
+            builder.Property(p => p.IsCompleted).HasColumnName("IsCompleted").HasColumnOrder(5);
 
-            builder.Property(p => p.CreatedDate).HasColumnName("CreateDate").HasColumnOrder(4);
-            builder.Property(p => p.UpdatedDate).HasColumnName("UpatedDate").HasColumnOrder(5);
+            builder.Property(p => p.CreatedDate).HasColumnName("CreatedDate").HasColumnOrder(6);
+            builder.Property(p => p.UpdatedDate).HasColumnName("UpatedDate").HasColumnOrder(7).IsRequired(false);
 
             builder.Property(p => p.Description).HasColumnName("Description").HasColumnOrder(8).HasMaxLength(500);
             builder.Property(p => p.IsActive).HasColumnName("IsActive").HasColumnOrder(9);
@@ -35,7 +40,7 @@ namespace Teleperformance.Final.Project.Persistance.Repositories.Configurations.
 
             #region TABLE & SCHEME
 
-            builder.ToTable("Items", "ShopList");
+            builder.ToTable("Main", "ShopList");
 
             #endregion
         }

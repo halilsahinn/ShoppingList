@@ -6,27 +6,27 @@ using Teleperformance.Final.Project.Application.DTOs.Product;
 namespace Teleperformance.Final.Project.Application.Feautures.Product.Queries
 {
 
-    public class GetByIdQuery : IRequest<ProductDto>
+    public class GetByIdProductQuery : IRequest<ProductDto>
     {
         public int Id { get; set; }
 
 
     }
 
-    public class GetByIdQueryHandler : IRequestHandler<GetByIdQuery, ProductDto>
+    public class GetByIdProductQueryHandler : IRequestHandler<GetByIdProductQuery, ProductDto>
     {
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
 
-        public GetByIdQueryHandler(IProductRepository productRepository, IMapper mapper)
+        public GetByIdProductQueryHandler(IProductRepository productRepository, IMapper mapper)
         {
             _productRepository = productRepository;
             _mapper = mapper;
         }
 
-        public async Task<ProductDto> Handle(GetByIdQuery request, CancellationToken cancellationToken)
+        public async Task<ProductDto> Handle(GetByIdProductQuery request, CancellationToken cancellationToken)
         {
-            var product = await _productRepository.Get(request.Id);
+            var product = await _productRepository.GetById(request.Id);
 
             return _mapper.Map<ProductDto>(product);
         }

@@ -2,14 +2,16 @@
 {
     public class AddShopListDto
     {
-
-        public int CategoryId { get; set; }
-        public int UserId { get; set; }
- 
         public string Title { get; set; }
+        public int CategoryId { get; set; }
+        public string UserId { get; set; }
+
+        public bool IsCompleted { get; set; } = false;
+
+        public bool IsActive { get; set; } = true;
 
         public string? Description { get; set; }
 
-        public DateTime CreateDate { get; set; } = DateTime.Now;
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
     }
 }

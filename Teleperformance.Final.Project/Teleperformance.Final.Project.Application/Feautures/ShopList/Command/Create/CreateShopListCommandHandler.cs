@@ -3,6 +3,7 @@ using MediatR;
 using Teleperformance.Final.Project.Application.Contracts.UnitOfWork;
 using Teleperformance.Final.Project.Application.DTOs.ShopList;
 using Teleperformance.Final.Project.Application.Feautures.Base;
+using Teleperformance.Final.Project.Application.Messages.TR.Info;
 using Teleperformance.Final.Project.Application.Responses;
 using Teleperformance.Final.Project.Application.ValidationRules.ShopList;
 using Teleperformance.Final.Project.Domain.ShopList;
@@ -38,18 +39,18 @@ namespace Teleperformance.Final.Project.Application.Feautures.ShopList.Command.C
             if (validationResult.IsValid == false)
             {
                 response.Success = false;
-                response.Message = "Alış Veriş Listesine Ürün Ekleme Hatalı";
+                response.Message = ShopListInfoMessage.AddedFail;
                 response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
             }
             else
             {
                 var result = _mapper.Map<ShopListEntity>(request.shopListDto);
 
-                // result = await _unitOfWork.ShopListRepository.Add(result);
+                result = await _unitOfWork.ShopListRepository.Add(result);
                 await _unitOfWork.Save();
 
                 response.Success = true;
-                response.Message = "Alış Veriş Listesine Ürün Ekleme Başarılı";
+                response.Message = ShopListInfoMessage.AddedSuccess;
                 response.Id = result.Id;
             }
             return response;

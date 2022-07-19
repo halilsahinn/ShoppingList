@@ -12,9 +12,9 @@ namespace Teleperformance.Final.Project.Domain.ShopList
 
         public int CategoryId { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
-        public bool IsComplete { get; set; }
+        public bool IsCompleted { get; set; }
 
         public DateTime? CompletedDate { get; set; }
 

@@ -10,6 +10,7 @@ namespace Teleperformance.Final.Project.Application.Profiles
         public ShopListProfile()
         {
             CreateMap<ShopListEntity, ShopListDto>().ReverseMap();
+            CreateMap<ShopListEntity, AddShopListDto>().ReverseMap();
 
         }
 

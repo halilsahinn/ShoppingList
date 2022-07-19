@@ -14,6 +14,7 @@ namespace Teleperformance.Final.Project.Persistance
         private IProductRepository _productRepository;
         private ICategoryRepository _categoryRepository;
         private IShopListRepository _shopListRepository;
+        private IShopListItemsRepository _shopListItemstRepository;
         #endregion
 
         #region CTOR
@@ -33,8 +34,11 @@ namespace Teleperformance.Final.Project.Persistance
         public IShopListRepository ShopListRepository =>
            _shopListRepository ??= new EfShopListRepository(_context);
 
+        public IShopListItemsRepository ShopListItemsRepository =>
+         _shopListItemstRepository ??= new EfShopListItemsRepository(_context);
+
         #endregion
- 
+
         #region METHODS
         public void Dispose()
         {

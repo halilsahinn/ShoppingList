@@ -6,7 +6,10 @@ using Teleperformance.Final.Project.WebAPI.Controllers.Base;
 
 namespace Teleperformance.Final.Project.WebAPI.Controllers
 {
+    #region ATTRIBUTES
     [AllowAnonymous]
+    #endregion
+
     public class AccountController : BaseController
     {
 
@@ -17,10 +20,7 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
         #endregion
          
         #region FIELDS
-
         private readonly IAuthService _authenticationService;
-
-
         #endregion
 
         #region CTOR
@@ -45,7 +45,7 @@ namespace Teleperformance.Final.Project.WebAPI.Controllers
             return Ok(await _authenticationService.Login(request));
         }
 
-
+        // GET: api/<AccountController>
         [HttpPost("register")]
         public async Task<ActionResult<RegistrationResponse>> Register(RegistrationRequest request)
         {
